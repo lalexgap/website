@@ -4,8 +4,6 @@ import Markdown from "react-markdown";
 const GITHUB_RESUME_URL =
   "https://raw.githubusercontent.com/lalexgap/resume/main/resume.md";
 
-const GENERATED_PDF_URL = "./generated/resume.pdf";
-
 function Resume(): React.ReactElement {
   const [resumeMarkdown, setResumeMarkdown] = useState("");
   useEffect(() => {
@@ -18,7 +16,7 @@ function Resume(): React.ReactElement {
 
   return (
     <div>
-      Download a copy of my resume <a href={GENERATED_PDF_URL}>here</a>.
+      Download a copy of my resume <a href={"/resume.pdf"}>here</a>.
       <Markdown>{resumeMarkdown}</Markdown>
     </div>
   );
