@@ -1,8 +1,11 @@
 import "./App.css";
-import { Resume } from "./Resume";
 
 function App() {
-  return Resume();
+  return (
+    <div>
+      Hello I'm Alex! Check out my <a href="/resume">resume</a>
+    </div>
+  );
 }
 
 export default App;
