@@ -2,10 +2,10 @@ import styled, { createGlobalStyle } from "styled-components";
 
 const theme = {
   colors: {
-    primary: '#FC766A',
-    secondary: '#783937',
-    background: '#F1AC88',
-    text:"#783937",
+    primary: '#B07BAC',
+    secondary: '#294C60',
+    background: '#A3D9FF',
+    text:"#001B2E",
     buttonText: "#FFFFFF",
   },
 };
