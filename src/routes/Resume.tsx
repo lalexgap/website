@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
 import styled from "styled-components";
-import { Centered, StyledButton } from "../style";
+import { Centered } from "../style";
 
 const ResumeContainer = styled.div`
   background-color: #ffffff;
   border-radius: 10px;
   padding: 2rem;
   color: #000000;
+a {
+    color: unset;
+  &:hover {
+    color: unset;
+  }
 `;
 
 const GITHUB_RESUME_URL =
@@ -26,9 +31,7 @@ function Resume(): React.ReactElement {
   return (
     <div>
       <Centered>
-        <StyledButton onClick={() => window.open("/resume.pdf")}>
-          Download
-        </StyledButton>
+        <button onClick={() => window.open("/resume.pdf")}>Download</button>
         <div>
           <ResumeContainer>
             <Markdown>{resumeMarkdown}</Markdown>

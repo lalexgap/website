@@ -2,31 +2,12 @@
 import styled, { createGlobalStyle } from "styled-components";
 import theme from "./theme";
 
-export const StyledLink = styled.a`
-  color: ${props => props.theme.colors.primary};
-  text-decoration: none;
-
-  &:hover {
-    color: ${props => props.theme.colors.secondary};
-    text-decoration: underline;
-  }
+export const Centered = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
-
-export const StyledButton = styled.button`
-    background-color: ${props => props.theme.colors.primary};
-    color: ${props=>props.theme.colors.buttonText};
-    border: none;
-    border-radius: 4px;
-    padding: 0.5rem 1rem;
-    margin: 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-    
-    &:hover {
-        background-color: ${props => props.theme.colors.secondary};
-    }
-    `;
-
 
 
 export const GlobalStyle = createGlobalStyle`
@@ -44,6 +25,30 @@ export const GlobalStyle = createGlobalStyle`
   padding: 2rem;
 }
 
+a {
+      color: ${theme.colors.primary};
+  text-decoration: none;
+
+  &:hover {
+    color: ${theme.colors.secondary};
+    text-decoration: underline;
+  }
+}
+
+button {
+    background-color: ${theme.colors.primary};
+    color: ${theme.colors.buttonText};
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    
+    &:hover {
+        background-color: ${theme.colors.secondary};
+    }
+}
 
 body {
   margin: 0;
@@ -55,9 +60,3 @@ body {
 
 `;
 
-export const Centered = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
