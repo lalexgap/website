@@ -28,6 +28,7 @@ export const StyledButton = styled.button`
     border: none;
     border-radius: 4px;
     padding: 0.5rem 1rem;
+    margin: 1rem;
     font-size: 1rem;
     cursor: pointer;
     
@@ -62,4 +63,11 @@ body {
   min-height: 100vh;
 }
 
+`;
+
+export const Centered = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
 import styled from "styled-components";
-import { StyledButton } from "../theme";
+import { Centered, StyledButton } from "../theme";
 
 const ResumeContainer = styled.div`
   background-color: #ffffff;
@@ -24,12 +24,16 @@ function Resume(): React.ReactElement {
 
   return (
     <div>
-      <StyledButton onClick={() => window.open("/resume.pdf")}>
-        Download
-      </StyledButton>
-      <ResumeContainer>
-        <Markdown>{resumeMarkdown}</Markdown>
-      </ResumeContainer>
+      <Centered>
+        <StyledButton onClick={() => window.open("/resume.pdf")}>
+          Download
+        </StyledButton>
+        <div>
+          <ResumeContainer>
+            <Markdown>{resumeMarkdown}</Markdown>
+          </ResumeContainer>
+        </div>
+      </Centered>
     </div>
   );
 }
