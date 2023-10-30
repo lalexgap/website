@@ -6,7 +6,7 @@ const GITHUB_RESUME_URL =
 
 const GENERATED_PDF_URL = "./generated/resume.pdf";
 
-export function Resume(): React.ReactElement {
+function Resume(): React.ReactElement {
   const [resumeMarkdown, setResumeMarkdown] = useState("");
   useEffect(() => {
     const fetchAndSetResumeMarkdown = async () => {
@@ -23,3 +23,4 @@ export function Resume(): React.ReactElement {
     </div>
   );
 }
+export default Resume;
