@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
+import styled from "styled-components";
 
+const ResumeContainer = styled.div`
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 2rem;
+`;
 const GITHUB_RESUME_URL =
   "https://raw.githubusercontent.com/lalexgap/resume/main/resume.md";
 
@@ -17,7 +23,9 @@ function Resume(): React.ReactElement {
   return (
     <div>
       Download a copy of my resume <a href={"/resume.pdf"}>here</a>.
-      <Markdown>{resumeMarkdown}</Markdown>
+      <ResumeContainer>
+        <Markdown>{resumeMarkdown}</Markdown>
+      </ResumeContainer>
     </div>
   );
 }
