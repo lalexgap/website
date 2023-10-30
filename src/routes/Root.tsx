@@ -1,6 +1,6 @@
-import "./App.css";
+import "../App.css";
 
-function App() {
+function Root() {
   return (
     <div>
       Hello I'm Alex! Check out my <a href="/resume">resume</a>
@@ -8,4 +8,4 @@ function App() {
   );
 }
 
-export default App;
+export default Root;
