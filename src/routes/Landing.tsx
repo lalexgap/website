@@ -1,9 +1,15 @@
+import { ThemeProvider } from "styled-components";
+import theme, { StyledLink } from "../theme";
+
 function Landing() {
   return (
-    <div>
-      Hello I'm Alex! Check out my <a href="/resume">resume</a> or some of my{" "}
-      <a href="/projects">projects</a>.
-    </div>
+    <ThemeProvider theme={theme}>
+      <div>
+        Hello I'm Alex! Check out my{" "}
+        <StyledLink href="/resume">resume</StyledLink> or some of my{" "}
+        <StyledLink href="/projects">projects</StyledLink>.
+      </div>
+    </ThemeProvider>
   );
 }
 

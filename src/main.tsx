@@ -1,10 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Landing from "./routes/Landing.tsx";
-import "./index.css";
+
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Resume from "./routes/Resume.tsx";
 import Projects from "./routes/Projects.tsx";
+import { ThemeProvider } from "styled-components";
+import theme from "./theme";
+import { GlobalStyle } from "./theme";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,6 +21,9 @@ const router = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <GlobalStyle />
+    <ThemeProvider theme={theme}>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </React.StrictMode>
 );
