@@ -5,6 +5,8 @@ const theme = {
     primary: '#FC766A',
     secondary: '#783937',
     background: '#F1AC88',
+    text:"#783937",
+    buttonText: "#FFFFFF",
   },
 };
 
@@ -20,6 +22,20 @@ export const StyledLink = styled.a`
   }
 `;
 
+export const StyledButton = styled.button`
+    background-color: ${props => props.theme.colors.primary};
+    color: ${props=>props.theme.colors.buttonText};
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    
+    &:hover {
+        background-color: ${props => props.theme.colors.secondary};
+    }
+    `;
+
 
 
 export const GlobalStyle = createGlobalStyle`
@@ -27,7 +43,7 @@ export const GlobalStyle = createGlobalStyle`
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
+  color: ${theme.colors.text};
   background-color: ${theme.colors.background};
 
 }
