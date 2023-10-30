@@ -1,4 +1,4 @@
-import { StyledLink } from "../theme";
+import { StyledLink } from "../style";
 
 function Projects() {
   return (

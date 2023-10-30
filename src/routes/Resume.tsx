@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
 import styled from "styled-components";
-import { Centered, StyledButton } from "../theme";
+import { Centered, StyledButton } from "../style";
 
 const ResumeContainer = styled.div`
   background-color: #ffffff;
@@ -9,6 +9,7 @@ const ResumeContainer = styled.div`
   padding: 2rem;
   color: #000000;
 `;
+
 const GITHUB_RESUME_URL =
   "https://raw.githubusercontent.com/lalexgap/resume/main/resume.md";
 

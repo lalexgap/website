@@ -7,7 +7,8 @@ import Resume from "./routes/Resume.tsx";
 import Projects from "./routes/Projects.tsx";
 import { ThemeProvider } from "styled-components";
 import theme from "./theme";
-import { GlobalStyle } from "./theme";
+import { GlobalStyle } from "./style.ts";
+
 const router = createBrowserRouter([
   {
     path: "/",

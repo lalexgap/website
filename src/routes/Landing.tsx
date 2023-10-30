@@ -1,5 +1,6 @@
 import { ThemeProvider } from "styled-components";
-import theme, { StyledLink } from "../theme";
+import theme from "../theme";
+import { StyledLink } from "../style";
 
 function Landing() {
   return (
