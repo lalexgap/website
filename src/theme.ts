@@ -2,6 +2,7 @@ import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
   palette: {
+    action:{selected:"#70F8BA"},
     primary: {
       main: '#294C60',
     },
@@ -18,7 +19,8 @@ const theme = createTheme({
             secondary:"#70F8BA"
         }
   },
-  // Add other theme configurations here
+  
+
 });
 
 export default theme;

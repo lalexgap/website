@@ -8,8 +8,8 @@ function Landing() {
       display="flex"
       justifyContent="center" // Horizontally centers the content
       alignItems="center" // Vertically centers the content
-      height="100vh" // Takes the full height of the viewport
       flexDirection="column"
+      marginTop={20}
     >
       <CardMedia
         component="img"
@@ -17,8 +17,11 @@ function Landing() {
         sx={{ maxHeight: 385, maxWidth: 385, borderRadius: "50%" }}
       />
       <Typography color="textPrimary" variant="h2" gutterBottom>
-        Hello I'm Alex! Check out my <Link href="/resume">resume</Link> or some
-        of my <Link href="/projects">projects</Link>.
+        Hello I'm Alex, and I'm a fullstack web3 developer!
+      </Typography>
+      <Typography color="textPrimary" variant="h4" gutterBottom>
+        Check out my <Link href="/resume">resume</Link> or some of my{" "}
+        <Link href="/projects">projects</Link>.
       </Typography>
     </Box>
   );

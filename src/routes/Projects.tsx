@@ -12,9 +12,6 @@ import {
 function Projects() {
   return (
     <Container>
-      <Typography variant="h1" color="textPrimary">
-        Projects
-      </Typography>{" "}
       <Carousel swipe={true} autoPlay={false}>
         <Card>
           <CardMedia component="img" image="go-nitro.png" />
