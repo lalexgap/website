@@ -4,9 +4,9 @@ function Landing() {
   return (
     <Box
       display="flex"
-      justifyContent="center" // Horizontally centers the content
-      alignItems="center" // Vertically centers the content
+      alignItems="center"
       flexDirection="column"
+      sx={{ px: 2 }}
     >
       <CardMedia
         component="img"
@@ -18,13 +18,13 @@ function Landing() {
           padding: 2,
         }}
       />
-      <Typography color="textPrimary" variant="h1" gutterBottom>
+      <Typography color="primary" variant="h3">
         Alex Gap
       </Typography>
-      <Typography color="textSecondary" variant="h2" gutterBottom>
+      <Typography color="textSecondary" variant="h3" gutterBottom>
         full-stack web3 developer
       </Typography>
-      <Typography color="textPrimary" variant="h4" gutterBottom>
+      <Typography color="textPrimary" variant="body1">
         Check out my <Link href="/resume">resume</Link> or some of the{" "}
         <Link href="/projects">projects</Link> I've worked on.
       </Typography>
