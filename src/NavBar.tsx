@@ -4,6 +4,7 @@ import { Button, Box, Toolbar, IconButton, Link } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 export default function NavBar() {
   const pages = [
     { name: "home", url: "/" },
@@ -40,6 +41,14 @@ export default function NavBar() {
         <Link color="inherit" href="https://github.com/lalexgap">
           <IconButton color="inherit" edge="end">
             <GitHubIcon />
+          </IconButton>
+        </Link>
+        <Link
+          color="inherit"
+          href="https://www.linkedin.com/in/alex-gap-7ba83665/"
+        >
+          <IconButton color="inherit" edge="end">
+            <LinkedInIcon />
           </IconButton>
         </Link>
       </Toolbar>
