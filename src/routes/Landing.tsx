@@ -1,5 +1,4 @@
 import { Box, Typography, Link, CardMedia } from "@mui/material";
-import Footer from "../Footer";
 
 function Landing() {
   return (
@@ -36,7 +35,6 @@ function Landing() {
           <Link href="/projects">projects</Link> I've worked on.
         </Typography>
       </Box>
-      <Footer />
     </Box>
   );
 }
