@@ -7,6 +7,9 @@ export const Centered = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+ 
+
+
 `;
 
 
@@ -55,7 +58,7 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+
 }
 
 `;
