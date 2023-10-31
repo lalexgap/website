@@ -35,10 +35,11 @@ function Resume(): React.ReactElement {
           padding: "1rem",
           background: "white",
           marginTop: "1rem",
-          borderRadius: 1,
-          fontPalette: "text.primary",
-          fontFamily: "monospace",
-          border: "5px solid rgba(0, 0, 0, 0.12)",
+          marginBottom: "1rem",
+          borderRadius: "5px",
+
+          fontFamily: "arial",
+          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.5)",
         }}
       >
         <Markdown>{resumeMarkdown}</Markdown>
