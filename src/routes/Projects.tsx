@@ -19,11 +19,7 @@ function Projects() {
         sx={{ paddingTop: 10 }}
       >
         <Card>
-          <CardMedia
-            component="img"
-            image="go-nitro.png"
-            sx={{ height: 600 }}
-          />
+          <CardMedia component="img" image="go-nitro.png" />
           <CardContent
             sx={(theme) => ({
               borderTop: `2px solid ${theme.palette.primary.main}`,
@@ -41,11 +37,7 @@ function Projects() {
           </CardContent>
         </Card>
         <Card>
-          <CardMedia
-            component="img"
-            image="bytecode-debugger.gif"
-            sx={{ height: 600 }}
-          />
+          <CardMedia component="img" image="bytecode-debugger.gif" />
           <CardContent
             sx={(theme) => ({
               borderTop: `2px solid ${theme.palette.primary.main}`,
@@ -63,11 +55,7 @@ function Projects() {
           </CardContent>
         </Card>
         <Card>
-          <CardMedia
-            component="img"
-            image="ethglobal-hack.png"
-            sx={{ height: 600 }}
-          />
+          <CardMedia component="img" image="ethglobal-hack.png" />
           <CardContent
             sx={(theme) => ({
               borderTop: `2px solid ${theme.palette.primary.main}`,
