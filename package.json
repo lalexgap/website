@@ -12,7 +12,8 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.14.15",
+    "@mui/icons-material": "^5.14.16",
+    "@mui/material": "^5.14.16",
     "@trendyol-js/react-carousel": "^3.0.2",
     "execa": "^8.0.1",
     "react": "^18.2.0",
