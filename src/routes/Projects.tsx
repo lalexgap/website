@@ -88,9 +88,9 @@ function Projects() {
               </Link>
             </Typography>
             <Typography variant="body2">
-              . Me and 3 other team members implemented a smart contract wallet
+              Me and 3 other team members implemented a smart contract wallet
               (ERC 4337) that also allowed instant bridging of assets between
-              chains. Our entry won "Polygon — Best Public G \sadas asdas
+              chains, winning multiple prizes.
             </Typography>
           </CardContent>
         </Card>
@@ -121,7 +121,8 @@ function Projects() {
             </Typography>
             <Typography variant="body2">
               As part of the state channels team I helped build web3 torrent
-              that integrates state channel payments into web torrent.
+              that integrates state channel payments into the web torrent
+              protocol.
             </Typography>
           </CardContent>
         </Card>
