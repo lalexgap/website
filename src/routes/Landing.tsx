@@ -1,10 +1,10 @@
-import theme from "../theme";
+
 import { Box, Typography, Link, CardMedia } from "@mui/material";
 
 function Landing() {
   return (
     <Box
-      sx={{ backgroundColor: theme.palette.background.default }}
+ 
       display="flex"
       justifyContent="center" // Horizontally centers the content
       alignItems="center" // Vertically centers the content
