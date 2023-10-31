@@ -1,34 +1,46 @@
+import { execaCommandSync } from "execa";
 
+import { Plugin } from "vite";
 
-import {  execaCommandSync } from "execa";
-
-import {Plugin} from "vite";
-
-import fs from 'fs';
-import path from 'path';
+import fs from "fs";
 
 const GITHUB_RESUME_URL =
-  "https://raw.githubusercontent.com/lalexgap/resume/main/resume.md";
+    "https://raw.githubusercontent.com/lalexgap/resume/main/resume.md";
 
+const GENERATED_FILEPATH = "./public/generated/resume.pdf";
 
- const serveResumePlugin  =(): Plugin=>({
-    name: 'pandoc-vite-plugin',
-     configureServer(server) {
-      return () => {
-        server.middlewares.use('/resume.pdf', (_, res,) => {
-            // Generate the PDF by calling pandoc to convert the latest markdown to PDF
-           execaCommandSync(`pandoc -i ${GITHUB_RESUME_URL} -o ./public/generated/resume.pdf`)
-          const pdfPath = path.resolve( 'public/generated/resume.pdf');
+const PDF_AGE_LIMIT = 1000 *60 * 60 * 6; // 6 hours
 
-          res.setHeader('Content-Type', 'application/pdf');
-          res.setHeader('Content-Disposition', 'inline; filename=Alex Gap Resume.pdf');
+const serveResumePlugin = (): Plugin => ({
+    name: "pandoc-vite-plugin",
+    configureServer(server) {
+        return () => {
+            server.middlewares.use("/resume.pdf", (_, res) => {
+                
+                // If the file doesn't exist or is older than PDF_AGE_LIMIT minute, regenerate it
+                // This guarantees that the latest github resume is always served
+                if (
+                     fs.existsSync(GENERATED_FILEPATH) &&
+                    Date.now() - fs.statSync(GENERATED_FILEPATH).mtime.getTime() >
+                    PDF_AGE_LIMIT
+                ) {
+                    console.log("Regenerating resume from github link")
+                    execaCommandSync(
+                        `pandoc -i ${GITHUB_RESUME_URL} -o ${GENERATED_FILEPATH}`
+                    );
+                }
 
-          // Read and send the PDF
-          const stream = fs.createReadStream(pdfPath);
-          stream.pipe(res);
-        });
-      };
-    }
-  })
+                res.setHeader("Content-Type", "application/pdf");
+                res.setHeader(
+                    "Content-Disposition",
+                    "inline; filename=Alex Gap Resume.pdf"
+                );
 
-  export default serveResumePlugin;
+                const stream = fs.createReadStream(GENERATED_FILEPATH);
+                stream.pipe(res);
+            });
+        };
+    },
+});
+
+export default serveResumePlugin;
