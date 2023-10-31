@@ -65,7 +65,11 @@ function Projects() {
               alignItems: "center",
             }}
           >
-            <CardMedia component="img" image="web3torrent.gif" />
+            <CardMedia
+              component="img"
+              image="web3torrent.gif"
+              sx={{ maxWidth: 500 }}
+            />
           </Box>
           <CardContent>
             <Typography gutterBottom variant="h5">
