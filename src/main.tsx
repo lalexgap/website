@@ -14,8 +14,14 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <Box
-        sx={{ backgroundColor: theme.palette.background.default }}
-        height="100vh"
+        sx={{
+          backgroundColor: theme.palette.background.default,
+          width: "100vw",
+          height: "100vh",
+          margin: 0,
+          padding: 0,
+          overflow: "auto",
+        }}
       >
         <BrowserRouter>
           <NavBar />
