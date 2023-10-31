@@ -1,13 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Landing from "./routes/Landing.tsx";
-
+import { ThemeProvider } from "@mui/material/styles";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Resume from "./routes/Resume.tsx";
 import Projects from "./routes/Projects.tsx";
-import { ThemeProvider } from "styled-components";
+import "./index.css";
 import theme from "./theme";
-import { GlobalStyle } from "./style.ts";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +21,6 @@ const router = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <GlobalStyle />
     <ThemeProvider theme={theme}>
       <RouterProvider router={router} />
     </ThemeProvider>
