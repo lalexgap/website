@@ -19,7 +19,12 @@ function Projects() {
         sx={{ paddingTop: 10 }}
       >
         <Card>
-          <CardMedia component="img" image="go-nitro.png" />
+          <CardMedia
+            component="img"
+            image="go-nitro.png"
+            // TODO: On first load the carousel will be super short unless we force the height
+            sx={{ height: 600 }}
+          />
           <CardContent
             sx={(theme) => ({
               borderTop: `2px solid ${theme.palette.primary.main}`,
