@@ -1,5 +1,4 @@
 import Carousel from "react-material-ui-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {
   Card,
   CardContent,
@@ -13,9 +12,18 @@ import {
 function Projects() {
   return (
     <Container>
-      <Carousel swipe={true} autoPlay={false} sx={{ paddingTop: 10 }}>
+      <Carousel
+        swipe={true}
+        autoPlay={false}
+        navButtonsAlwaysVisible={true}
+        sx={{ paddingTop: 10 }}
+      >
         <Card>
-          <CardMedia component="img" image="go-nitro.png" />
+          <CardMedia
+            component="img"
+            image="go-nitro.png"
+            sx={{ height: 600 }}
+          />
           <CardContent>
             <Typography gutterBottom variant="h5">
               <Link href="https://github.com/statechannels/go-nitro">
@@ -29,7 +37,11 @@ function Projects() {
           </CardContent>
         </Card>
         <Card>
-          <CardMedia component="img" image="bytecode-debugger.gif" />
+          <CardMedia
+            component="img"
+            image="bytecode-debugger.gif"
+            sx={{ height: 600 }}
+          />
           <CardContent>
             <Typography gutterBottom variant="h5">
               <Link href="https://github.com/lalexgap/bytecode-debugger">
@@ -43,7 +55,11 @@ function Projects() {
           </CardContent>
         </Card>
         <Card>
-          <CardMedia component="img" image="ethglobal-hack.png" />
+          <CardMedia
+            component="img"
+            image="ethglobal-hack.png"
+            sx={{ height: 600 }}
+          />
           <CardContent>
             <Typography gutterBottom variant="h5">
               <Link href="https://ethglobal.com/showcase/scbridgeaccount-ivyas">
@@ -68,15 +84,14 @@ function Projects() {
             <CardMedia
               component="img"
               image="web3torrent.gif"
-              sx={{ maxWidth: 500 }}
+              sx={{ maxWidth: 500, height: 600 }}
             />
           </Box>
           <CardContent>
             <Typography gutterBottom variant="h5">
-              <Link href="https://ethglobal.com/showcase/scbridgeaccount-ivyas">
-                <Link href="https://web3torrent.statechannels.org/">
-                  Web3Torrent
-                </Link>
+              {" "}
+              <Link href="https://web3torrent.statechannels.org/">
+                Web3Torrent
               </Link>
             </Typography>
             <Typography variant="body2">
