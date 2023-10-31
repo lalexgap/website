@@ -16,14 +16,14 @@ function Projects() {
         swipe={true}
         autoPlay={false}
         navButtonsAlwaysVisible={true}
-        sx={{ paddingTop: 10 }}
+        sx={{ paddingTop: 5 }}
+        height={"80vh"}
       >
         <Card>
           <CardMedia
             component="img"
             image="go-nitro.png"
-            // TODO: On first load the carousel will be super short unless we force the height
-            sx={{ height: 600 }}
+            sx={{ maxHeight: "68vh", objectFit: "contain" }}
           />
           <CardContent
             sx={(theme) => ({
@@ -42,7 +42,19 @@ function Projects() {
           </CardContent>
         </Card>
         <Card>
-          <CardMedia component="img" image="bytecode-debugger.gif" />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <CardMedia
+              component="img"
+              image="bytecode-debugger.gif"
+              sx={{ maxHeight: "68vh", objectFit: "contain" }}
+            />
+          </Box>
           <CardContent
             sx={(theme) => ({
               borderTop: `2px solid ${theme.palette.primary.main}`,
@@ -60,7 +72,11 @@ function Projects() {
           </CardContent>
         </Card>
         <Card>
-          <CardMedia component="img" image="ethglobal-hack.png" />
+          <CardMedia
+            component="img"
+            sx={{ maxHeight: "68vh", objectFit: "contain" }}
+            image="ethglobal-hack.png"
+          />
           <CardContent
             sx={(theme) => ({
               borderTop: `2px solid ${theme.palette.primary.main}`,
@@ -89,7 +105,7 @@ function Projects() {
             <CardMedia
               component="img"
               image="web3torrent.gif"
-              sx={{ maxWidth: 500, height: 600 }}
+              sx={{ maxHeight: "68vh", objectFit: "contain" }}
             />
           </Box>
           <CardContent
