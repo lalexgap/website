@@ -24,7 +24,11 @@ function Projects() {
             image="go-nitro.png"
             sx={{ height: 600 }}
           />
-          <CardContent>
+          <CardContent
+            sx={(theme) => ({
+              borderTop: `2px solid ${theme.palette.primary.main}`,
+            })}
+          >
             <Typography gutterBottom variant="h5">
               <Link href="https://github.com/statechannels/go-nitro">
                 go-nitro state channels framework
@@ -42,7 +46,11 @@ function Projects() {
             image="bytecode-debugger.gif"
             sx={{ height: 600 }}
           />
-          <CardContent>
+          <CardContent
+            sx={(theme) => ({
+              borderTop: `2px solid ${theme.palette.primary.main}`,
+            })}
+          >
             <Typography gutterBottom variant="h5">
               <Link href="https://github.com/lalexgap/bytecode-debugger">
                 EVM Bytecode Debugger
@@ -60,7 +68,11 @@ function Projects() {
             image="ethglobal-hack.png"
             sx={{ height: 600 }}
           />
-          <CardContent>
+          <CardContent
+            sx={(theme) => ({
+              borderTop: `2px solid ${theme.palette.primary.main}`,
+            })}
+          >
             <Typography gutterBottom variant="h5">
               <Link href="https://ethglobal.com/showcase/scbridgeaccount-ivyas">
                 Ethglobal 2023 Hackathon Entry
@@ -87,7 +99,11 @@ function Projects() {
               sx={{ maxWidth: 500, height: 600 }}
             />
           </Box>
-          <CardContent>
+          <CardContent
+            sx={(theme) => ({
+              borderTop: `2px solid ${theme.palette.primary.main}`,
+            })}
+          >
             <Typography gutterBottom variant="h5">
               {" "}
               <Link href="https://web3torrent.statechannels.org/">
