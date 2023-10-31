@@ -15,7 +15,7 @@ function Projects() {
       <Typography variant="h1" color="textPrimary">
         Projects
       </Typography>{" "}
-      <Carousel>
+      <Carousel swipe={true} autoPlay={false}>
         <Card>
           <CardMedia component="img" image="go-nitro.png" />
           <CardContent>
