@@ -17,7 +17,7 @@ function Landing() {
         sx={{ maxHeight: 385, maxWidth: 385, borderRadius: "50%" }}
       />
       <Typography color="textPrimary" variant="h2" gutterBottom>
-        Hello I'm Alex, and I'm a fullstack web3 developer!
+        Hello I'm Alex, and I'm a full-stack web3 developer!
       </Typography>
       <Typography color="textPrimary" variant="h4" gutterBottom>
         Check out my <Link href="/resume">resume</Link> or some of my{" "}
