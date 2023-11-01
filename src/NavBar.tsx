@@ -9,7 +9,7 @@ import EmailIcon from "@mui/icons-material/Email";
 
 export default function NavBar() {
   const pages = [
-    { name: "home", url: "/" },
+    { name: "about", url: "/" },
     { name: "projects", url: "/projects" },
     { name: "resume", url: "/resume" },
   ];

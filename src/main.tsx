@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Landing from "./routes/Landing.tsx";
+import About from "./routes/About.tsx";
 import { ThemeProvider } from "@mui/material/styles";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Resume from "./routes/Resume.tsx";
@@ -29,7 +29,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           <NavBar />
           <Container component="main" sx={{ flex: 1, mb: "auto" }}>
             <Routes>
-              <Route path="/" element={<Landing />} />
+              <Route path="/" element={<About />} />
+              <Route path="/about" element={<About />} />
               <Route path="/resume" element={<Resume />} />
               <Route path="/projects" element={<Projects />} />
             </Routes>

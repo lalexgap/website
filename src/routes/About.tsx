@@ -1,6 +1,6 @@
 import { Box, Typography, Link, CardMedia } from "@mui/material";
 
-function Landing() {
+function About() {
   return (
     <Box
       display="flex"
@@ -56,4 +56,4 @@ function Landing() {
   );
 }
 
-export default Landing;
+export default About;
