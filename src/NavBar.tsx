@@ -14,7 +14,7 @@ export default function NavBar() {
     { name: "resume", url: "/resume" },
   ];
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       <Toolbar>
         <Box sx={{ flexGrow: 1, display: "flex" }}>
           {pages.map((page) => (
