@@ -3,4 +3,6 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  /* Slight bit of a cludge to force the background to always be blue when scrolling to the bottom */
+  background-color:  #a3d9ff;
 }
