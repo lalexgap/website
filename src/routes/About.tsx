@@ -44,9 +44,9 @@ function About() {
           , and I'm always eager to learn new things.
         </Typography>
         <Typography color="textPrimary" variant="body1" py={1}>
-          I love building and using open and decentralized technologies. I've
-          contributed to multiple open source projects and I also run my own
-          ethereum{" "}
+          I love building and using open and decentralized technologies. I've{" "}
+          <Link href="https://github.com/lalexgap">contributed</Link> to
+          multiple open source projects and I also run my own ethereum{" "}
           <Link href="https://www.beaconcha.in/validator/835956f9b6475e055b346c029756b3746a53cfda875b8a1cfe93722b937b93d4ca7334a147201d1673fa0d0c9252d8c9">
             validator node
           </Link>
