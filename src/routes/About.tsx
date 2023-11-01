@@ -1,6 +1,15 @@
 import { Box, Typography, Link, CardMedia } from "@mui/material";
 
 function About() {
+  const emphasize = (text: string) => (
+    <Box
+      component="span"
+      sx={(theme) => ({ color: theme.palette.text.secondary })}
+    >
+      {text}
+    </Box>
+  );
+
   return (
     <Box
       display="flex"
@@ -34,14 +43,9 @@ function About() {
           Hi! I'm Alex and I'm a full-stack developer based out of Squamish, BC,
           Canada. I have over 10 years experience in software development and
           over 6 years of experience with web3 development. I have experience
-          using a wide range of technologies, including{" "}
-          <Box
-            component="span"
-            sx={(theme) => ({ color: theme.palette.text.secondary })}
-          >
-            React, Typescript, Golang, Solidity
-          </Box>
-          , and I'm always eager to learn new things.
+          with a wide range of technologies, including {emphasize("react")},{" "}
+          {emphasize("typescript")}, {emphasize("golang")}, and{" "}
+          {emphasize("solidity")}, and I'm always eager to learn new things.
         </Typography>
         <Typography color="textPrimary" variant="body1" py={1}>
           I love building and using open and decentralized technologies. I've{" "}
