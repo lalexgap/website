@@ -87,7 +87,7 @@ function Projects() {
         autoPlay={false}
         navButtonsAlwaysVisible={true}
         sx={{ paddingTop: 5 }}
-        height={"78vh"}
+        height={"75vh"}
       >
         {projects.map((project) => (
           <Card key={project.image} sx={{ backgroundColor: "transparent" }}>
