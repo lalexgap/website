@@ -40,12 +40,12 @@ function About() {
           full-stack developer
         </Typography>
         <Typography color="textPrimary" variant="body1" py={1}>
-          Hi! I'm Alex and I'm a full-stack developer based out of Squamish, BC,
-          Canada. I have over 10 years experience in software development and
-          over 6 years of experience with web3 development. I have experience
-          with a wide range of technologies, including {emphasize("react")},{" "}
+          Hi! My name is Alex, and I'm a full-stack developer located in
+          Squamish, BC, Canada. With over a decade in software development and
+          more than six years in web3 development, I have honed my skills across
+          a diverse range of technologies, including {emphasize("react")},{" "}
           {emphasize("typescript")}, {emphasize("golang")}, and{" "}
-          {emphasize("solidity")}, and I'm always eager to learn new things.
+          {emphasize("solidity")}.
         </Typography>
         <Typography color="textPrimary" variant="body1" py={1}>
           I love building and using open and decentralized technologies. I've{" "}
