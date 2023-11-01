@@ -7,11 +7,15 @@ export default function Footer() {
       display="flex"
       flexDirection="column"
       alignItems="center"
-      pt={1}
+      sx={{
+        mt: "auto",
+
+        backgroundColor: (theme) => theme.palette.background.default,
+      }}
     >
       <Typography color="textPrimary" variant="caption">
-        This website has been lovingly crafted by myself. Check out the{" "}
-        <Link href="https://github.com/lalexgap/website">source code</Link>.
+        This website has been lovingly hand-crafted and self-hosted. Check out
+        the <Link href="https://github.com/lalexgap/website">source code</Link>.
       </Typography>
     </Box>
   );

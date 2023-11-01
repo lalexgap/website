@@ -8,7 +8,8 @@ import Projects from "./routes/Projects.tsx";
 import "./index.css";
 import theme from "./theme";
 import NavBar from "./NavBar.tsx";
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
+import Footer from "./Footer.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -16,20 +17,24 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <Box
         sx={{
           backgroundColor: theme.palette.background.default,
-          width: "100vw",
-          height: "100vh",
-          margin: 0,
-          padding: 0,
-          overflow: "auto",
+
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100vh",
+
+          flex: 1,
         }}
       >
         <BrowserRouter>
           <NavBar />
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/resume" element={<Resume />} />
-            <Route path="/projects" element={<Projects />} />
-          </Routes>
+          <Container component="main" sx={{ flex: 1, mb: "auto" }}>
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/resume" element={<Resume />} />
+              <Route path="/projects" element={<Projects />} />
+            </Routes>
+          </Container>
+          <Footer />
         </BrowserRouter>
       </Box>
     </ThemeProvider>
