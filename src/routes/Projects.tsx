@@ -14,7 +14,6 @@ function Projects() {
       image: "ethglobal-hack.png",
       content: (
         <Container>
-          {" "}
           <Typography gutterBottom variant="h5">
             <Link href="https://ethglobal.com/showcase/scbridgeaccount-ivyas">
               ETHGlobal 2023 Hackathon Entry
@@ -65,9 +64,7 @@ function Projects() {
       image: "web3torrent.gif",
       content: (
         <Container>
-          {" "}
           <Typography gutterBottom variant="h5">
-            {" "}
             <Link href="https://web3torrent.statechannels.org/">
               Web3Torrent
             </Link>
