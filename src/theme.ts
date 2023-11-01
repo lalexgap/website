@@ -1,6 +1,17 @@
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
+    typography: (palette) =>({
+      h3:{
+        fontFamily:"'Bungee Shade', sans-serif",
+        color:palette.text.primary
+      },
+      h4:{
+
+   fontFamily:"'Bungee Shade', sans-serif",
+   color:palette.text.secondary
+      },
+    }),
   palette: {
     action:{selected:"#e55812"},
     primary: {
@@ -17,7 +28,6 @@ const theme = createTheme({
             secondary:'#e55812'
         }
   },
-  
 
 });
 

@@ -33,10 +33,8 @@ function About() {
             padding: 2,
           }}
         />
-        <Typography color="primary" variant="h3">
-          Alex Gap
-        </Typography>
-        <Typography color="textSecondary" variant="h4" gutterBottom>
+        <Typography variant="h3">Alex Gap</Typography>
+        <Typography variant="h4" gutterBottom>
           full-stack developer
         </Typography>
         <Typography color="textPrimary" variant="body1" py={1}>
