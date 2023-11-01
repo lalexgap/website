@@ -17,12 +17,17 @@ function Resume(): React.ReactElement {
 
   return (
     <Container
-      sx={{
+      sx={(theme) => ({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        paddingTop: "1rem",
-      }}
+        pt: 1,
+        [theme.breakpoints.down("md")]: {
+          width: "100%",
+          mx: 0,
+          px: 0,
+        },
+      })}
     >
       <Link color="inherit" href="/resume.pdf">
         <Button color="inherit">
@@ -31,16 +36,20 @@ function Resume(): React.ReactElement {
         </Button>
       </Link>
       <Box
-        sx={{
-          padding: "1rem",
+        sx={(theme) => ({
           background: "white",
-          marginTop: "1rem",
-          marginBottom: "1rem",
+          p: "1rem",
+          my: 1,
           borderRadius: "5px",
-
           fontFamily: "arial",
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.5)",
-        }}
+          [theme.breakpoints.down("md")]: {
+            width: "100%",
+            mx: 0,
+            boxShadow: "none",
+            borderRadius: "0px",
+          },
+        })}
       >
         <Markdown>{resumeMarkdown}</Markdown>
       </Box>
