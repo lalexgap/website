@@ -9,6 +9,7 @@ export default function Footer() {
       alignItems="center"
       sx={{
         mt: "auto",
+        px: 2,
 
         backgroundColor: (theme) => theme.palette.background.default,
       }}
