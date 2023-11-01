@@ -36,7 +36,11 @@ export default function NavBar() {
           ))}
         </Box>
 
-        <Link color="inherit" href="https://github.com/lalexgap">
+        <Link
+          color="inherit"
+          href="https://github.com/lalexgap"
+          title="Github Profile"
+        >
           <IconButton color="inherit" edge="end">
             <GitHubIcon />
           </IconButton>
@@ -44,17 +48,18 @@ export default function NavBar() {
         <Link
           color="inherit"
           href="https://www.linkedin.com/in/alex-gap-7ba83665/"
+          title="LinkedIn Profile"
         >
           <IconButton color="inherit" edge="end">
             <LinkedInIcon />
           </IconButton>
         </Link>
-        <Link color="inherit" href="mailto:me@alexgap.ca">
+        <Link color="inherit" title="Email" href="mailto:me@alexgap.ca">
           <IconButton color="inherit" edge="end">
             <EmailIcon />
           </IconButton>
         </Link>
-        <Link color="inherit" href="/resume.pdf">
+        <Link color="inherit" href="/resume.pdf" title="Resume PDF">
           <IconButton color="inherit" edge="end">
             <PictureAsPdfIcon />
           </IconButton>
