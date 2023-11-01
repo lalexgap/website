@@ -10,6 +10,7 @@ export default function Footer() {
       sx={{
         mt: "auto",
         px: 2,
+        pt: 1,
 
         backgroundColor: (theme) => theme.palette.background.default,
       }}
