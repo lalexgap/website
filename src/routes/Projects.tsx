@@ -81,7 +81,7 @@ function Projects() {
     <Container>
       <Carousel
         swipe={true}
-        autoPlay={false}
+        autoPlay={true}
         navButtonsAlwaysVisible={true}
         sx={{ paddingTop: 5, minHeight: "75vh" }}
       >
