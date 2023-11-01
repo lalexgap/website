@@ -27,8 +27,8 @@ function Landing() {
         <Typography color="primary" variant="h3">
           Alex Gap
         </Typography>
-        <Typography color="textSecondary" variant="h3" gutterBottom>
-          full-stack web3 developer
+        <Typography color="textSecondary" variant="h4" gutterBottom>
+          full-stack developer
         </Typography>
         <Typography color="textPrimary" variant="body1">
           Check out my <Link href="/resume">resume</Link> or some of the{" "}
