@@ -39,5 +39,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         </BrowserRouter>
       </Box>
     </ThemeProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
