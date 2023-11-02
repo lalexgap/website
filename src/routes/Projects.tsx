@@ -90,7 +90,7 @@ function Projects() {
             <CardMedia
               component="img"
               image={project.image}
-              sx={{ maxHeight: "65vh", objectFit: "contain" }}
+              sx={{ maxHeight: "62vh", objectFit: "contain" }}
             />
             <CardContent
               sx={(theme) => ({
