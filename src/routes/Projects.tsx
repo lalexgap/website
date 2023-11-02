@@ -83,14 +83,14 @@ function Projects() {
         swipe={true}
         autoPlay={true}
         navButtonsAlwaysVisible={true}
-        sx={{ paddingTop: 5, minHeight: "75vh" }}
+        sx={{ paddingTop: 5, minHeight: "77vh" }}
       >
         {projects.map((project) => (
           <Card key={project.image} sx={{ backgroundColor: "transparent" }}>
             <CardMedia
               component="img"
               image={project.image}
-              sx={{ maxHeight: "62vh", objectFit: "contain" }}
+              sx={{ maxHeight: "60vh", objectFit: "contain" }}
             />
             <CardContent
               sx={(theme) => ({
