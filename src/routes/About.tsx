@@ -19,7 +19,7 @@ function About() {
     >
       <Box
         display="flex"
-        maxWidth={800}
+        maxWidth={600}
         alignItems="center"
         flexDirection="column"
       >
