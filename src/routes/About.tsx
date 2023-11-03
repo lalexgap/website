@@ -42,8 +42,9 @@ function About() {
         </Typography>
         <Typography color="textPrimary" variant="body1" py={1}>
           I love building and using open and decentralized technologies! Check
-          out some of cool the <Link href="/projects">projects</Link> I've
-          worked on. I also proudly manage and maintain my own ethereum{" "}
+          out some of the cool{" "}
+          <Link href="/projects">projects I've worked on</Link>. I also proudly
+          manage and maintain my own ethereum{" "}
           <Link href="https://www.beaconcha.in/validator/835956f9b6475e055b346c029756b3746a53cfda875b8a1cfe93722b937b93d4ca7334a147201d1673fa0d0c9252d8c9">
             validator node
           </Link>
