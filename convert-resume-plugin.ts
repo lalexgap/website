@@ -19,7 +19,7 @@ const serveResumePlugin = (): Plugin => ({
         // If the file doesn't exist or is older than PDF_AGE_LIMIT minute, regenerate it
         // This guarantees that the latest github resume is always served
         if (
-          fs.existsSync(GENERATED_FILEPATH) &&
+          !fs.existsSync(GENERATED_FILEPATH) ||
           Date.now() - fs.statSync(GENERATED_FILEPATH).mtime.getTime() >
             PDF_AGE_LIMIT
         ) {
