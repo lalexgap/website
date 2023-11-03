@@ -36,7 +36,7 @@ function Projects() {
       description: `As part of the state channels team I helped build web3 torrent that integrates state channel payments into the web torrent protocol.`,
     },
     {
-      name: "Safe Whitepaper",
+      name: "SAFE Whitepaper",
       link: "https://github.com/statechannels/SAFE-protocol/blob/main/doc/SAFE.md",
       image: "safe-paper.png",
       description: `A protocol for low cost and secure cross-chain transfers of value.`,
