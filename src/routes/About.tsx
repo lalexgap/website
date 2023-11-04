@@ -32,13 +32,13 @@ function About() {
         </Typography>
         <Typography color="textPrimary" variant="body1" py={1}>
           Hi! My name is Alex, and I'm a full-stack developer located in
-          Squamish, BC, Canada. I have over a decade in software development and
-          more than six years in web3 development. I currently work with the{" "}
+          Squamish, BC, Canada. I have over a decade of experience in software
+          development and I have spent the last 6 years specializing in web3
+          development. I currently work with the{" "}
           <Link href="https://statechannels.org/team/">
             State Channels team
-          </Link>{" "}
-          which is funded by{" "}
-          <Link href="https://www.mesh.xyz/">Consensys Mesh</Link>.
+          </Link>
+          , funded by <Link href="https://www.mesh.xyz/">Consensys Mesh</Link>.
         </Typography>
         <Typography color="textPrimary" variant="body1" py={1}>
           I love building and using open and decentralized technologies! Check
