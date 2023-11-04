@@ -13,6 +13,7 @@ function About() {
         maxWidth={600}
         alignItems="center"
         flexDirection="column"
+        pb={2}
       >
         <CardMedia
           component="img"
