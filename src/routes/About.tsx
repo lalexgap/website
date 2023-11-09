@@ -34,7 +34,7 @@ function About() {
         <Typography color="textPrimary" variant="body1" py={1}>
           Hi! My name is Alex, and I'm a full-stack developer located in
           Squamish, BC, Canada. I have over a decade of experience in software
-          development and I have spent the last 6 years specializing in web3
+          development and I have spent the last 5 years specializing in web3
           development. I currently work with the{" "}
           <Link href="https://statechannels.org/team/">
             State Channels team
