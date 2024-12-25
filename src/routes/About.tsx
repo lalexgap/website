@@ -32,25 +32,13 @@ function About() {
           full-stack developer
         </Typography>
         <Typography color="textPrimary" variant="body1" py={1}>
-          Hi! My name is Alex, and I'm a full-stack developer located in
-          Squamish, BC, Canada. I have over a decade of experience in software
-          development and I have spent the last 5 years specializing in web3
-          development. I currently work with the{" "}
-          <Link href="https://statechannels.org/team/">
-            State Channels team
-          </Link>
-          , funded by <Link href="https://www.mesh.xyz/">Consensys Mesh</Link>.
+          I'm a full-stack developer located in Squamish, BC, Canada. I
+          currently work at{" "}
+          <Link href="https://www.producthunt.com/@lagap">Product Hunt</Link> as
+          a software engineer. Check out some of the cool{" "}
+          <Link href="/projects">projects I've worked on</Link>.
         </Typography>
-        <Typography color="textPrimary" variant="body1" py={1}>
-          I love building and using open and decentralized technologies! Check
-          out some of the cool{" "}
-          <Link href="/projects">projects I've worked on</Link>. I also proudly
-          manage and maintain my own ethereum{" "}
-          <Link href="https://www.beaconcha.in/validator/835956f9b6475e055b346c029756b3746a53cfda875b8a1cfe93722b937b93d4ca7334a147201d1673fa0d0c9252d8c9">
-            validator node
-          </Link>
-          .
-        </Typography>
+        <Typography color="textPrimary" variant="body1" py={1}></Typography>
       </Box>
     </Box>
   );
