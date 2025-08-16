@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(yarn upgrade:*)",
+      "Bash(node:*)",
+      "Bash(nvm use:*)",
+      "Bash(yarn outdated)",
+      "Bash(yarn install)",
+      "Bash(yarn:*)"
+    ],
+    "deny": []
+  }
+}

@@ -6,13 +6,13 @@ This is Alex Gap's personal website hosted at www.alexgap.ca. It's a React-based
 
 ## Tech Stack
 
-- **Frontend Framework**: React 19.0.0 with TypeScript
-- **Build Tool**: Vite 6.0.5
-- **Styling**: Tailwind CSS 4.1.12
-- **Routing**: React Router DOM 7.1.1
+- **Frontend Framework**: React 19.1.1 with TypeScript
+- **Build Tool**: Vite 6.3.5
+- **Styling**: Material-UI 6.5.0 + Emotion
+- **Routing**: React Router DOM 7.8.1
 - **Content**: React Markdown for resume rendering
-- **Icons**: React Icons 5.5.0
-- **Carousel**: Embla Carousel for project showcase
+- **Icons**: Material-UI Icons 6.5.0
+- **Carousel**: Various carousel libraries for project showcase
 - **Package Manager**: Yarn
 
 ## Project Structure
@@ -32,7 +32,7 @@ This is Alex Gap's personal website hosted at www.alexgap.ca. It's a React-based
 ├── convert-resume-plugin.ts  # Custom Vite plugin for PDF generation
 ├── vite.config.ts           # Vite configuration
 ├── tsconfig.json            # TypeScript configuration
-├── eslint.config.js        # ESLint configuration
+├── eslint.config.js         # ESLint configuration (flat config format)
 ├── tailwind.config.js      # Tailwind CSS configuration
 └── postcss.config.js       # PostCSS configuration
 ```
@@ -81,7 +81,7 @@ yarn preview          # Preview production build locally
 ## Development Guidelines
 
 ### Code Style
-- **ESLint Config**: TypeScript + React hooks + Prettier integration
+- **ESLint Config**: Flat config format (eslint.config.js) with TypeScript + React hooks + Prettier integration
 - **TypeScript**: Strict mode enabled with comprehensive linting rules
 - **Formatting**: Prettier with plugin integration
 
@@ -170,6 +170,11 @@ yarn preview          # Preview production build locally
 - Run `yarn lint` to check for TypeScript/ESLint errors
 - Ensure all imports are correctly typed
 - Check for missing dependencies
+
+### ESLint Issues
+- Project uses ESLint 9+ with flat config format (eslint.config.js)
+- Legacy .eslintrc.* files are not supported
+- Ensure React imports are explicit when using JSX
 
 ### Development Server Issues
 - Clear Vite cache: Remove `node_modules/.vite/`
