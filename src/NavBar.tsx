@@ -14,8 +14,28 @@ export default function NavBar() {
     { name: "resume", url: "/resume" },
   ];
   return (
-    <AppBar position="sticky">
-      <Toolbar>
+    <AppBar
+      position="sticky"
+      sx={{
+        width: "100vw",
+        left: 0,
+        right: 0,
+        top: 0,
+        margin: 0,
+        marginLeft: 0,
+        marginRight: 0,
+        marginTop: 0,
+      }}
+    >
+      <Toolbar
+        sx={{
+          width: "100%",
+          maxWidth: "none",
+          padding: 0,
+          paddingLeft: 2,
+          paddingRight: 2,
+        }}
+      >
         <Box sx={{ flexGrow: 1, display: "flex" }}>
           {pages.map((page) => (
             <Button
@@ -36,34 +56,36 @@ export default function NavBar() {
           ))}
         </Box>
 
-        <Link
-          color="inherit"
-          href="https://github.com/lalexgap"
-          title="Github Profile"
-        >
-          <IconButton color="inherit" edge="end">
-            <GitHubIcon />
-          </IconButton>
-        </Link>
-        <Link
-          color="inherit"
-          href="https://www.linkedin.com/in/alex-gap-7ba83665/"
-          title="LinkedIn Profile"
-        >
-          <IconButton color="inherit" edge="end">
-            <LinkedInIcon />
-          </IconButton>
-        </Link>
-        <Link color="inherit" title="Email" href="mailto:me@alexgap.ca">
-          <IconButton color="inherit" edge="end">
-            <EmailIcon />
-          </IconButton>
-        </Link>
-        <Link color="inherit" href="/resume.pdf" title="Resume PDF">
-          <IconButton color="inherit" edge="end">
-            <PictureAsPdfIcon />
-          </IconButton>
-        </Link>
+        <Box sx={{ display: "flex", gap: 1, paddingRight: 5 }}>
+          <Link
+            color="inherit"
+            href="https://github.com/lalexgap"
+            title="Github Profile"
+          >
+            <IconButton color="inherit">
+              <GitHubIcon />
+            </IconButton>
+          </Link>
+          <Link
+            color="inherit"
+            href="https://www.linkedin.com/in/alex-gap-7ba83665/"
+            title="LinkedIn Profile"
+          >
+            <IconButton color="inherit">
+              <LinkedInIcon />
+            </IconButton>
+          </Link>
+          <Link color="inherit" title="Email" href="mailto:me@alexgap.ca">
+            <IconButton color="inherit">
+              <EmailIcon />
+            </IconButton>
+          </Link>
+          <Link color="inherit" href="/resume.pdf" title="Resume PDF">
+            <IconButton color="inherit">
+              <PictureAsPdfIcon />
+            </IconButton>
+          </Link>
+        </Box>
       </Toolbar>
     </AppBar>
   );
