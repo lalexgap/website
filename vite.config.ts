@@ -5,4 +5,7 @@ import serveResumePlugin from "./convert-resume-plugin";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [serveResumePlugin(), react()],
+  server: {
+    allowedHosts: ["www.alexgap.ca", "alexgap.ca"],
+  },
 });
