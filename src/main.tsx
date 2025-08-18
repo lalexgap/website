@@ -27,7 +27,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       >
         <BrowserRouter>
           <NavBar />
-          <Container component="main" sx={{ flex: 1, mb: "auto" }}>
+          <Container component="main" sx={{ flex: 1, mb: "auto", mt: 8 }}>
             <Routes>
               <Route path="/" element={<About />} />
               <Route path="/about" element={<About />} />

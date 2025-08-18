@@ -15,16 +15,12 @@ export default function NavBar() {
   ];
   return (
     <AppBar
-      position="sticky"
+      position="fixed"
       sx={{
-        width: "100vw",
+        width: "100%",
         left: 0,
         right: 0,
         top: 0,
-        margin: 0,
-        marginLeft: 0,
-        marginRight: 0,
-        marginTop: 0,
       }}
     >
       <Toolbar
