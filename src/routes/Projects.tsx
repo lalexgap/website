@@ -1,102 +1,53 @@
-import React, { useState, useRef } from "react";
 import {
   Card,
   CardContent,
   Link,
   Typography,
   Container,
-  CardMedia,
   Box,
   IconButton,
+  Fade,
+  Chip,
 } from "@mui/material";
 import { ArrowBack, ArrowForward } from "@mui/icons-material";
+import { useCarousel } from "../hooks/useCarousel";
+import { PROJECTS } from "../constants/projects";
+import LazyImage from "../components/LazyImage";
 
 function Projects() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
+  const {
+    currentIndex,
+    goTo,
+    goToNext,
+    goToPrevious,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+    handleKeyDown,
+  } = useCarousel(PROJECTS.length, { autoPlay: false });
 
-  const projects = [
-    {
-      image: "ethglobal-hack.png",
-      link: "https://ethglobal.com/showcase/scbridgeaccount-ivyas",
-      name: "ETHGlobal 2023 Hackathon Entry",
-      description: `Me and 3 other team members implemented a smart contract wallet (ERC4337) that also allowed instant bridging of assets between chains, winning multiple prizes.`,
-    },
-    {
-      image: "go-nitro.png",
-      link: "https://github.com/statechannels/go-nitro",
-      name: "go-nitro State Channel Framework",
-      description: `As part of the state channels team I designed and implemented various parts of the go-nitro state channels framework.`,
-    },
-    {
-      name: "EVM Bytecode Debugger",
-      link: "https://github.com/lalexgap/bytecode-debugger",
-      image: "bytecode-debugger.gif",
-      description: `A little CLI tool that lets you step through EVM bytecode, to see what's going on under the hood of your smart contracts.`,
-    },
-    {
-      name: "Web3Torrent",
-      link: "https://web3torrent.statechannels.org/",
-      image: "web3torrent.gif",
-      description: `As part of the state channels team I helped build web3 torrent that integrates state channel payments into the web torrent protocol.`,
-    },
-    {
-      name: "SAFE Whitepaper",
-      link: "https://github.com/statechannels/SAFE-protocol/blob/main/doc/SAFE.md",
-      image: "safe-paper.png",
-      description: `A protocol for low cost and secure cross-chain transfers of value.`,
-    },
-  ];
-
-  const handlePrevious = () => {
-    setCurrentIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.targetTouches[0].clientX;
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndX.current = e.targetTouches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    if (!touchStartX.current || !touchEndX.current) return;
-
-    const distance = touchStartX.current - touchEndX.current;
-    const SWIPE_THRESHOLD = 50;
-
-    if (distance > SWIPE_THRESHOLD) {
-      handleNext();
-    } else if (distance < -SWIPE_THRESHOLD) {
-      handlePrevious();
-    }
-
-    touchStartX.current = 0;
-    touchEndX.current = 0;
-  };
-
-  const currentProject = projects[currentIndex];
+  const currentProject = PROJECTS[currentIndex];
 
   const navButtonStyles = {
     backgroundColor: "rgba(0, 0, 0, 0.5)",
     color: "white",
+    transition: "all 0.2s ease-in-out",
     "&:hover": {
       backgroundColor: "rgba(0, 0, 0, 0.7)",
+      transform: "scale(1.1)",
+    },
+    "&:focus-visible": {
+      outline: "2px solid white",
+      outlineOffset: "2px",
     },
   };
 
   return (
-    <Container>
+    <Container component="section" aria-label="Projects showcase">
       <Box
         sx={{
-          paddingTop: 5,
-          minHeight: "77vh",
+          paddingTop: { xs: 2, md: 5 },
+          minHeight: { xs: "70vh", md: "77vh" },
           position: "relative",
           display: "flex",
           alignItems: "center",
@@ -105,12 +56,19 @@ function Projects() {
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
+        onKeyDown={handleKeyDown}
+        tabIndex={0}
+        role="region"
+        aria-label="Project carousel"
+        aria-roledescription="carousel"
+        aria-live="polite"
       >
         <IconButton
-          onClick={handlePrevious}
+          onClick={goToPrevious}
+          aria-label="Previous project"
           sx={{
             position: "absolute",
-            left: 0,
+            left: { xs: 0, sm: 8, md: 16 },
             top: "50%",
             transform: "translateY(-50%)",
             zIndex: 3,
@@ -120,41 +78,74 @@ function Projects() {
           <ArrowBack />
         </IconButton>
 
-        <Card
-          sx={{
-            backgroundColor: "transparent",
-            width: "100%",
-            maxWidth: "800px",
-          }}
-        >
-          <CardMedia
-            component="img"
-            image={currentProject.image}
-            sx={{ maxHeight: "60vh", objectFit: "contain" }}
-          />
-          <CardContent
-            sx={(theme) => ({
-              mt: 1,
-              border: `2px solid ${theme.palette.primary.main}`,
-              backgroundColor: theme.palette.background.paper,
-            })}
+        <Fade in key={currentIndex} timeout={300}>
+          <Card
+            sx={{
+              backgroundColor: "transparent",
+              width: "100%",
+              maxWidth: "800px",
+              boxShadow: "none",
+              border: "none",
+            }}
+            aria-label={`${currentIndex + 1} of ${PROJECTS.length}`}
           >
-            <Container>
-              <Typography gutterBottom variant="h5">
-                <Link href={currentProject.link}>{currentProject.name}</Link>
-              </Typography>
-              <Typography variant="body2">
-                {currentProject.description}
-              </Typography>
-            </Container>
-          </CardContent>
-        </Card>
+            <LazyImage
+              src={currentProject.image}
+              alt={currentProject.name}
+              maxHeight={{ xs: "40vh", sm: "50vh", md: "60vh" }}
+            />
+            <CardContent
+              sx={(theme) => ({
+                mt: 2,
+                border: `2px solid ${theme.palette.primary.main}`,
+                backgroundColor: theme.palette.background.paper,
+                borderRadius: "8px",
+                transition: "transform 0.2s ease-in-out",
+                "&:hover": {
+                  transform: "translateY(-2px)",
+                },
+              })}
+            >
+              <Container>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="h2"
+                  sx={{ fontSize: { xs: "1.25rem", md: "1.5rem" } }}
+                >
+                  <Link
+                    href={currentProject.link}
+                    aria-label={`Learn more about ${currentProject.name}`}
+                  >
+                    {currentProject.name}
+                  </Link>
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontSize: { xs: "0.9rem", md: "1rem" },
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {currentProject.description}
+                </Typography>
+                <Chip
+                  label={`${currentIndex + 1} / ${PROJECTS.length}`}
+                  size="small"
+                  sx={{ mt: 1, fontSize: "0.75rem" }}
+                  aria-hidden="true"
+                />
+              </Container>
+            </CardContent>
+          </Card>
+        </Fade>
 
         <IconButton
-          onClick={handleNext}
+          onClick={goToNext}
+          aria-label="Next project"
           sx={{
             position: "absolute",
-            right: 0,
+            right: { xs: 0, sm: 8, md: 16 },
             top: "50%",
             transform: "translateY(-50%)",
             zIndex: 3,
@@ -167,17 +158,32 @@ function Projects() {
         <Box
           sx={{
             position: "absolute",
-            bottom: 20,
+            bottom: { xs: 10, md: 20 },
             left: "50%",
             transform: "translateX(-50%)",
             display: "flex",
             gap: 1,
+            flexWrap: "wrap",
+            justifyContent: "center",
+            px: 2,
           }}
+          role="tablist"
+          aria-label="Project navigation"
         >
-          {projects.map((_, index) => (
+          {PROJECTS.map((project, index) => (
             <Box
               key={index}
-              onClick={() => setCurrentIndex(index)}
+              onClick={() => goTo(index)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  goTo(index);
+                }
+              }}
+              tabIndex={0}
+              role="tab"
+              aria-selected={index === currentIndex}
+              aria-label={`Go to ${project.name}`}
               sx={{
                 width: 10,
                 height: 10,
@@ -185,9 +191,14 @@ function Projects() {
                 backgroundColor:
                   index === currentIndex ? "primary.main" : "grey.400",
                 cursor: "pointer",
-                transition: "background-color 0.3s",
+                transition: "all 0.3s ease-in-out",
                 "&:hover": {
                   backgroundColor: "primary.light",
+                  transform: "scale(1.2)",
+                },
+                "&:focus-visible": {
+                  outline: "2px solid white",
+                  outlineOffset: "2px",
                 },
               }}
             />

@@ -1,10 +1,10 @@
 module.exports = {
   apps: [
     {
-      name: "alexgap-website",
-      script: "/home/lagap/.yarn/bin/serve",
-      args: "-s dist -l 5173",
-      exec_mode: "fork",
+      name: "alexgap-website-preview",
+      script: "yarn",
+      args: "preview",
+      instances: 1,
       autorestart: true,
       watch: false,
       max_memory_restart: "1G",

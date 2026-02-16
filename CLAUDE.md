@@ -27,24 +27,29 @@ yarn preview          # Preview production build
 ## Architecture
 
 ### Routing Structure
+
 - `/` and `/about` → About page
 - `/resume` → Dynamic resume from GitHub with PDF download
 - `/projects` → Projects showcase
 
 ### Resume System
+
 - **Dynamic Fetching**: Resume component fetches markdown from `https://raw.githubusercontent.com/lalexgap/resume/main/resume.md`
 - **PDF Generation**: Custom Vite plugin (`convert-resume-plugin.ts`) uses Pandoc to convert markdown to PDF
 - **Caching**: PDF regenerates every 6 hours, served at `/resume.pdf` endpoint
 - **Requirements**: System must have Pandoc installed
 
 ### Theme Configuration
+
 Located in `src/theme.ts`:
+
 - Primary color: `#294C60`
 - Background: `#a3d9ff`
 - Typography: 'Bungee Shade' font for headers
 - Custom text colors and MUI theme overrides
 
 ### Key Files
+
 - `src/main.tsx` - App entry with routing setup
 - `src/routes/` - Page components (About, Resume, Projects)
 - `convert-resume-plugin.ts` - Vite plugin for PDF generation

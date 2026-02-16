@@ -1,44 +1,29 @@
-import React, { useEffect, useState } from "react";
 import Markdown from "react-markdown";
-import { Box, Button, Container } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Typography,
+  Skeleton,
+  Alert,
+} from "@mui/material";
 import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
+import { useFetch } from "../hooks/useFetch";
+
 const GITHUB_RESUME_URL =
   "https://raw.githubusercontent.com/lalexgap/resume/main/resume.md";
 
 function Resume(): React.ReactElement {
-  const [resumeMarkdown, setResumeMarkdown] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchAndSetResumeMarkdown = async () => {
-      setIsLoading(true);
-      setError(null);
-
-      try {
-        const response = await fetch(GITHUB_RESUME_URL);
-
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-        }
-
-        const text = await response.text();
-        setResumeMarkdown(text);
-      } catch (err) {
-        const errorMessage =
-          err instanceof Error ? err.message : "Unknown error occurred";
-        console.error("Error fetching resume:", errorMessage);
-        setError(errorMessage);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchAndSetResumeMarkdown();
-  }, []);
+  const {
+    data: resumeMarkdown,
+    isLoading,
+    error,
+  } = useFetch<string>(GITHUB_RESUME_URL);
 
   return (
     <Container
+      component="article"
+      aria-label="Resume"
       sx={(theme) => ({
         display: "flex",
         flexDirection: "column",
@@ -58,49 +43,72 @@ function Resume(): React.ReactElement {
         target="_blank"
         rel="noopener noreferrer"
         sx={{ mb: 2 }}
+        aria-label="Download resume as PDF"
+        startIcon={<PictureAsPdfIcon />}
       >
         Download a PDF copy
-        <PictureAsPdfIcon sx={{ ml: 1 }} />
       </Button>
+
       <Box
         sx={(theme) => ({
           background: "white",
-          p: "1rem",
+          p: { xs: 2, md: "1rem" },
           my: 1,
-          borderRadius: "5px",
-          fontFamily: "arial",
-          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.5)",
+          borderRadius: "8px",
+          fontFamily: "'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+          boxShadow: "0 4px 20px rgba(0, 0, 0, 0.15)",
+          width: "100%",
+          maxWidth: "900px",
           [theme.breakpoints.down("md")]: {
-            width: "100%",
             mx: 0,
             boxShadow: "none",
             borderRadius: "0px",
           },
+          "@media print": {
+            boxShadow: "none",
+            borderRadius: 0,
+          },
         })}
       >
         {isLoading && (
-          <div style={{ textAlign: "center", padding: "2rem" }}>
-            Loading resume...
-          </div>
+          <Box sx={{ p: 4 }}>
+            <Skeleton variant="text" height={40} sx={{ mb: 2 }} />
+            <Skeleton variant="text" height={20} sx={{ mb: 1 }} />
+            <Skeleton variant="text" height={20} sx={{ mb: 1 }} />
+            <Skeleton variant="text" height={20} width="80%" sx={{ mb: 3 }} />
+            <Skeleton variant="text" height={30} sx={{ mb: 2 }} />
+            <Skeleton variant="text" height={20} sx={{ mb: 1 }} />
+            <Skeleton variant="text" height={20} width="60%" />
+          </Box>
         )}
 
         {error && (
-          <div style={{ color: "red", textAlign: "center", padding: "2rem" }}>
+          <Alert severity="error" sx={{ m: 2 }}>
             Error loading resume: {error}
-          </div>
+          </Alert>
         )}
 
         {!isLoading && !error && resumeMarkdown && (
-          <Markdown>{resumeMarkdown}</Markdown>
+          <Box
+            sx={{
+              "& h1, & h2, & h3, & h4": { mt: 2, mb: 1 },
+              "& p": { mb: 1 },
+              "& ul": { pl: 3, mb: 1 },
+              "& li": { mb: 0.5 },
+            }}
+          >
+            <Markdown>{resumeMarkdown}</Markdown>
+          </Box>
         )}
 
         {!isLoading && !error && !resumeMarkdown && (
-          <div style={{ textAlign: "center", padding: "2rem" }}>
+          <Typography align="center" sx={{ p: 4 }}>
             No resume content available
-          </div>
+          </Typography>
         )}
       </Box>
     </Container>
   );
 }
+
 export default Resume;

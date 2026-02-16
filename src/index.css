@@ -1,8 +1,44 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  /* Slight bit of a cludge to force the background to always be blue when scrolling to the bottom */
-  background-color:  #a3d9ff;
+  background-color: #a3d9ff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus visible styles for keyboard navigation */
+*:focus-visible {
+  outline: 3px solid #e55812;
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    background-color: white;
+  }
+
+  nav,
+  footer,
+  .no-print {
+    display: none !important;
+  }
 }
