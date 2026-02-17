@@ -60,6 +60,17 @@ const serveResumePlugin = (): Plugin => ({
       }
     });
   },
+  closeBundle() {
+    try {
+      console.log("Generating resume PDF for production build...");
+      const outputPath = "./dist/resume.pdf";
+      const command = `pandoc ${GITHUB_RESUME_URL} -o ${outputPath}`;
+      execaCommandSync(command);
+      console.log("Resume PDF generated at dist/resume.pdf");
+    } catch (error) {
+      console.error("Error generating PDF during build:", error);
+    }
+  },
 });
 
 export default serveResumePlugin;
