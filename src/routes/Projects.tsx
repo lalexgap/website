@@ -1,15 +1,5 @@
-import React, { useState, useRef } from "react";
-import {
-  Card,
-  CardContent,
-  Link,
-  Typography,
-  Container,
-  CardMedia,
-  Box,
-  IconButton,
-} from "@mui/material";
-import { ArrowBack, ArrowForward } from "@mui/icons-material";
+import { useState, useRef, type TouchEvent } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -57,11 +47,11 @@ function Projects() {
     setCurrentIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
   };
 
-  const handleTouchStart = (e: React.TouchEvent) => {
+  const handleTouchStart = (e: TouchEvent) => {
     touchStartX.current = e.targetTouches[0].clientX;
   };
 
-  const handleTouchMove = (e: React.TouchEvent) => {
+  const handleTouchMove = (e: TouchEvent) => {
     touchEndX.current = e.targetTouches[0].clientX;
   };
 
@@ -83,118 +73,57 @@ function Projects() {
 
   const currentProject = projects[currentIndex];
 
-  const navButtonStyles = {
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    color: "white",
-    "&:hover": {
-      backgroundColor: "rgba(0, 0, 0, 0.7)",
-    },
-  };
-
   return (
-    <Container>
-      <Box
-        sx={{
-          paddingTop: 5,
-          minHeight: "77vh",
-          position: "relative",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
+    <div className="mx-auto max-w-5xl">
+      <div
+        className="relative flex min-h-[77vh] items-center justify-center pt-5"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <IconButton
+        <button
           onClick={handlePrevious}
-          sx={{
-            position: "absolute",
-            left: 0,
-            top: "50%",
-            transform: "translateY(-50%)",
-            zIndex: 3,
-            ...navButtonStyles,
-          }}
+          className="absolute left-0 top-1/2 z-10 -translate-y-1/2 cursor-pointer rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
         >
-          <ArrowBack />
-        </IconButton>
+          <ChevronLeft size={24} />
+        </button>
 
-        <Card
-          sx={{
-            backgroundColor: "transparent",
-            width: "100%",
-            maxWidth: "800px",
-          }}
-        >
-          <CardMedia
-            component="img"
-            image={currentProject.image}
-            sx={{ maxHeight: "60vh", objectFit: "contain" }}
+        <div className="w-full max-w-[800px]">
+          <img
+            src={currentProject.image}
+            alt={currentProject.name}
+            className="max-h-[60vh] w-full object-contain"
           />
-          <CardContent
-            sx={(theme) => ({
-              mt: 1,
-              border: `2px solid ${theme.palette.primary.main}`,
-              backgroundColor: theme.palette.background.paper,
-            })}
-          >
-            <Container>
-              <Typography gutterBottom variant="h5">
-                <Link href={currentProject.link}>{currentProject.name}</Link>
-              </Typography>
-              <Typography variant="body2">
-                {currentProject.description}
-              </Typography>
-            </Container>
-          </CardContent>
-        </Card>
+          <div className="mt-1 border-2 border-primary bg-bg-paper p-4">
+            <h5 className="mb-1 text-xl font-medium">
+              <a href={currentProject.link} className="text-primary underline">
+                {currentProject.name}
+              </a>
+            </h5>
+            <p className="text-sm">{currentProject.description}</p>
+          </div>
+        </div>
 
-        <IconButton
+        <button
           onClick={handleNext}
-          sx={{
-            position: "absolute",
-            right: 0,
-            top: "50%",
-            transform: "translateY(-50%)",
-            zIndex: 3,
-            ...navButtonStyles,
-          }}
+          className="absolute right-0 top-1/2 z-10 -translate-y-1/2 cursor-pointer rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
         >
-          <ArrowForward />
-        </IconButton>
+          <ChevronRight size={24} />
+        </button>
 
-        <Box
-          sx={{
-            position: "absolute",
-            bottom: 20,
-            left: "50%",
-            transform: "translateX(-50%)",
-            display: "flex",
-            gap: 1,
-          }}
-        >
+        <div className="absolute bottom-5 left-1/2 flex -translate-x-1/2 gap-2">
           {projects.map((_, index) => (
-            <Box
+            <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              sx={{
-                width: 10,
-                height: 10,
-                borderRadius: "50%",
-                backgroundColor:
-                  index === currentIndex ? "primary.main" : "grey.400",
-                cursor: "pointer",
-                transition: "background-color 0.3s",
-                "&:hover": {
-                  backgroundColor: "primary.light",
-                },
-              }}
+              className={`h-2.5 w-2.5 cursor-pointer rounded-full border-none transition-colors hover:bg-primary-light ${
+                index === currentIndex ? "bg-primary" : "bg-gray-400"
+              }`}
             />
           ))}
-        </Box>
-      </Box>
-    </Container>
+        </div>
+      </div>
+    </div>
   );
 }
 

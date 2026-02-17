@@ -8,17 +8,18 @@ Personal website for Alex Gap hosted at www.alexgap.ca - a React-based single-pa
 
 ## Tech Stack
 
-- **React 19.1.1** with TypeScript 5.9.2
-- **Vite 6.3.5** as build tool
-- **Material-UI 6.5.0** for components and styling
-- **React Router DOM 7.8.1** for routing
-- **React Markdown 9.1.0** for resume rendering
+- **React 19.2** with TypeScript 5.9
+- **Vite 7.3** as build tool
+- **Tailwind CSS 4** for styling (via `@tailwindcss/vite` plugin)
+- **lucide-react** for icons
+- **React Router DOM 7.13** for routing (data router pattern with `createBrowserRouter`)
+- **React Markdown 10.1** for resume rendering
 
 ## Commands
 
 ```bash
 yarn dev              # Start development server on port 5173
-yarn build            # TypeScript compilation + Vite build
+yarn build            # TypeScript compilation (tsc -b) + Vite build
 yarn lint             # ESLint with TypeScript support
 yarn format           # Format code with Prettier
 yarn preview          # Preview production build
@@ -31,6 +32,8 @@ yarn preview          # Preview production build
 - `/resume` → Dynamic resume from GitHub with PDF download
 - `/projects` → Projects showcase
 
+Uses the data router pattern (`createBrowserRouter` + `RouterProvider`) with a shared `Layout` component containing NavBar, content outlet, and Footer.
+
 ### Resume System
 - **Dynamic Fetching**: Resume component fetches markdown from `https://raw.githubusercontent.com/lalexgap/resume/main/resume.md`
 - **PDF Generation**: Custom Vite plugin (`convert-resume-plugin.ts`) uses Pandoc to convert markdown to PDF
@@ -38,21 +41,23 @@ yarn preview          # Preview production build
 - **Requirements**: System must have Pandoc installed
 
 ### Theme Configuration
-Located in `src/theme.ts`:
-- Primary color: `#294C60`
-- Background: `#a3d9ff`
-- Typography: 'Bungee Shade' font for headers
-- Custom text colors and MUI theme overrides
+Defined in `src/index.css` using Tailwind CSS `@theme` directive:
+- Primary color: `#294C60` (`bg-primary`, `text-primary`)
+- Background: `#a3d9ff` (`bg-bg-default`)
+- Accent: `#e55812` (`text-accent`, `bg-accent`)
+- Display font: 'Bungee Shade' (`font-display`)
+- Text primary: `#001B2E` (`text-text-primary`)
 
 ### Key Files
-- `src/main.tsx` - App entry with routing setup
+- `src/main.tsx` - App entry with router creation and rendering
+- `src/Layout.tsx` - Shared layout with NavBar, content outlet, and Footer
 - `src/routes/` - Page components (About, Resume, Projects)
 - `convert-resume-plugin.ts` - Vite plugin for PDF generation
-- `eslint.config.js` - ESLint 9+ flat config with TypeScript/React/Prettier
+- `eslint.config.js` - ESLint 10 flat config with `typescript-eslint`
 
 ## Development Notes
 
-- **ESLint**: Uses flat config format (ESLint 9+), not legacy .eslintrc
+- **ESLint**: Uses flat config format with `typescript-eslint` unified package
 - **Node Requirement**: Node >=22.0.0
 - **Package Manager**: Yarn
 - **No Test Framework**: Currently no testing setup
