@@ -48,7 +48,7 @@ function Resume() {
         Download a PDF copy
         <FileText size={20} />
       </a>
-      <div className="my-1 rounded-[5px] bg-white p-4 font-[arial] shadow-[0_4px_8px_rgba(0,0,0,0.5)] max-md:mx-0 max-md:w-full max-md:rounded-none max-md:shadow-none">
+      <div className="prose prose-sm prose-h1:mb-1 prose-h2:mb-1 prose-h2:mt-3 prose-h3:mb-0.5 prose-h3:mt-2 prose-p:my-1 prose-ul:my-1 prose-li:my-0 my-1 max-w-none rounded-[5px] bg-white p-4 font-[arial] shadow-[0_4px_8px_rgba(0,0,0,0.5)] max-md:mx-0 max-md:w-full max-md:rounded-none max-md:shadow-none">
         {isLoading && <div className="p-8 text-center">Loading resume...</div>}
 
         {error && (
