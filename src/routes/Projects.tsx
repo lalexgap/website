@@ -1,10 +1,10 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef, type TouchEvent } from "react";
 import {
   Card,
   CardContent,
+  Container,
   Link,
   Typography,
-  Container,
   CardMedia,
   Box,
   IconButton,
@@ -57,11 +57,11 @@ function Projects() {
     setCurrentIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
   };
 
-  const handleTouchStart = (e: React.TouchEvent) => {
+  const handleTouchStart = (e: TouchEvent) => {
     touchStartX.current = e.targetTouches[0].clientX;
   };
 
-  const handleTouchMove = (e: React.TouchEvent) => {
+  const handleTouchMove = (e: TouchEvent) => {
     touchEndX.current = e.targetTouches[0].clientX;
   };
 
@@ -139,14 +139,12 @@ function Projects() {
               backgroundColor: theme.palette.background.paper,
             })}
           >
-            <Container>
-              <Typography gutterBottom variant="h5">
-                <Link href={currentProject.link}>{currentProject.name}</Link>
-              </Typography>
-              <Typography variant="body2">
-                {currentProject.description}
-              </Typography>
-            </Container>
+            <Typography gutterBottom variant="h5">
+              <Link href={currentProject.link}>{currentProject.name}</Link>
+            </Typography>
+            <Typography variant="body2">
+              {currentProject.description}
+            </Typography>
           </CardContent>
         </Card>
 

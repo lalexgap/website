@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
 import { Box, Button, Container } from "@mui/material";
 import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 const GITHUB_RESUME_URL =
   "https://raw.githubusercontent.com/lalexgap/resume/main/resume.md";
 
-function Resume(): React.ReactElement {
+function Resume() {
   const [resumeMarkdown, setResumeMarkdown] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

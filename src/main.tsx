@@ -1,43 +1,30 @@
-import React from "react";
+import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
-import About from "./routes/About.tsx";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Resume from "./routes/Resume.tsx";
-import Projects from "./routes/Projects.tsx";
-import "./index.css";
+import About from "./routes/About";
+import Resume from "./routes/Resume";
+import Projects from "./routes/Projects";
+import Layout from "./Layout";
 import theme from "./theme";
-import NavBar from "./NavBar.tsx";
-import { Box, Container } from "@mui/material";
-import Footer from "./Footer.tsx";
+import "./index.css";
+
+const router = createBrowserRouter([
+  {
+    element: <Layout />,
+    children: [
+      { path: "/", element: <About /> },
+      { path: "/about", element: <About /> },
+      { path: "/resume", element: <Resume /> },
+      { path: "/projects", element: <Projects /> },
+    ],
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
+  <StrictMode>
     <ThemeProvider theme={theme}>
-      <Box
-        sx={{
-          backgroundColor: theme.palette.background.default,
-
-          display: "flex",
-          flexDirection: "column",
-          minHeight: "100vh",
-
-          flex: 1,
-        }}
-      >
-        <BrowserRouter>
-          <NavBar />
-          <Container component="main" sx={{ flex: 1, mb: "auto", mt: 8 }}>
-            <Routes>
-              <Route path="/" element={<About />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/resume" element={<Resume />} />
-              <Route path="/projects" element={<Projects />} />
-            </Routes>
-          </Container>
-          <Footer />
-        </BrowserRouter>
-      </Box>
+      <RouterProvider router={router} />
     </ThemeProvider>
-  </React.StrictMode>,
+  </StrictMode>,
 );

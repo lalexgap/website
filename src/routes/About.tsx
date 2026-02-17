@@ -38,7 +38,6 @@ function About() {
           a software engineer. Check out some of the cool{" "}
           <Link href="/projects">projects I've worked on</Link>.
         </Typography>
-        <Typography color="textPrimary" variant="body1" py={1}></Typography>
       </Box>
     </Box>
   );
