@@ -1,8 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #294c60;
+  --color-primary-light: #3a6a85;
+  --color-bg-default: #a3d9ff;
+  --color-bg-paper: #ffffff;
+  --color-text-primary: #001b2e;
+  --color-accent: #e55812;
+  --font-display: "Bungee Shade", sans-serif;
+}
+
 body {
   margin: 0;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  /* Slight bit of a cludge to force the background to always be blue when scrolling to the bottom */
-  background-color:  #a3d9ff;
+  background-color: #a3d9ff;
 }

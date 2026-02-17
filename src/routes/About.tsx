@@ -1,45 +1,35 @@
-import { Box, Typography, Link, CardMedia } from "@mui/material";
-
 function About() {
   return (
-    <Box
-      display="flex"
-      alignItems="center"
-      flexDirection="column"
-      sx={{ px: 2 }}
-    >
-      <Box
-        display="flex"
-        maxWidth={600}
-        alignItems="center"
-        flexDirection="column"
-        pb={2}
-      >
-        <CardMedia
-          component="img"
-          image="alex.png"
-          sx={{
-            maxHeight: 385,
-            maxWidth: 385,
-            borderRadius: "50%",
-            padding: 2,
-          }}
+    <div className="flex flex-col items-center px-2">
+      <div className="flex max-w-[600px] flex-col items-center pb-2">
+        <img
+          src="alex.png"
+          alt="Alex Gap"
+          className="max-h-[385px] max-w-[385px] rounded-full p-2"
         />
-        <Typography variant="h3" align="center">
+        <h1 className="text-center font-display text-3xl text-text-primary">
           Alex Gap
-        </Typography>
-        <Typography variant="h4" align="center" gutterBottom>
+        </h1>
+        <h2 className="mb-2 text-center font-display text-2xl text-accent">
           full-stack developer
-        </Typography>
-        <Typography color="textPrimary" variant="body1" py={1}>
+        </h2>
+        <p className="py-1 text-text-primary">
           I'm a full-stack developer located in Squamish, BC, Canada. I
           currently work at{" "}
-          <Link href="https://www.producthunt.com/@lagap">Product Hunt</Link> as
-          a software engineer. Check out some of the cool{" "}
-          <Link href="/projects">projects I've worked on</Link>.
-        </Typography>
-      </Box>
-    </Box>
+          <a
+            href="https://www.producthunt.com/@lagap"
+            className="text-primary underline"
+          >
+            Product Hunt
+          </a>{" "}
+          as a software engineer. Check out some of the cool{" "}
+          <a href="/projects" className="text-primary underline">
+            projects I've worked on
+          </a>
+          .
+        </p>
+      </div>
+    </div>
   );
 }
 

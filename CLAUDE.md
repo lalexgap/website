@@ -10,7 +10,8 @@ Personal website for Alex Gap hosted at www.alexgap.ca - a React-based single-pa
 
 - **React 19.2** with TypeScript 5.9
 - **Vite 7.3** as build tool
-- **Material-UI 7.3** for components and styling
+- **Tailwind CSS 4** for styling (via `@tailwindcss/vite` plugin)
+- **lucide-react** for icons
 - **React Router DOM 7.13** for routing (data router pattern with `createBrowserRouter`)
 - **React Markdown 10.1** for resume rendering
 
@@ -40,11 +41,12 @@ Uses the data router pattern (`createBrowserRouter` + `RouterProvider`) with a s
 - **Requirements**: System must have Pandoc installed
 
 ### Theme Configuration
-Located in `src/theme.ts`:
-- Primary color: `#294C60`
-- Background: `#a3d9ff`
-- Typography: 'Bungee Shade' font for headers
-- Custom text colors and MUI theme overrides
+Defined in `src/index.css` using Tailwind CSS `@theme` directive:
+- Primary color: `#294C60` (`bg-primary`, `text-primary`)
+- Background: `#a3d9ff` (`bg-bg-default`)
+- Accent: `#e55812` (`text-accent`, `bg-accent`)
+- Display font: 'Bungee Shade' (`font-display`)
+- Text primary: `#001B2E` (`text-text-primary`)
 
 ### Key Files
 - `src/main.tsx` - App entry with router creation and rendering

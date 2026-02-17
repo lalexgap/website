@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
-import { Box, Button, Container } from "@mui/material";
-import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
+import { FileText } from "lucide-react";
+
 const GITHUB_RESUME_URL =
   "https://raw.githubusercontent.com/lalexgap/resume/main/resume.md";
 
@@ -38,54 +38,21 @@ function Resume() {
   }, []);
 
   return (
-    <Container
-      sx={(theme) => ({
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        pt: 1,
-        [theme.breakpoints.down("md")]: {
-          width: "100%",
-          mx: 0,
-          px: 0,
-        },
-      })}
-    >
-      <Button
-        color="inherit"
-        component="a"
+    <div className="flex flex-col items-center pt-1 max-md:mx-0 max-md:w-full max-md:px-0">
+      <a
         href="/resume.pdf"
         target="_blank"
         rel="noopener noreferrer"
-        sx={{ mb: 2 }}
+        className="mb-2 inline-flex items-center gap-1 text-text-primary underline"
       >
         Download a PDF copy
-        <PictureAsPdfIcon sx={{ ml: 1 }} />
-      </Button>
-      <Box
-        sx={(theme) => ({
-          background: "white",
-          p: "1rem",
-          my: 1,
-          borderRadius: "5px",
-          fontFamily: "arial",
-          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.5)",
-          [theme.breakpoints.down("md")]: {
-            width: "100%",
-            mx: 0,
-            boxShadow: "none",
-            borderRadius: "0px",
-          },
-        })}
-      >
-        {isLoading && (
-          <div style={{ textAlign: "center", padding: "2rem" }}>
-            Loading resume...
-          </div>
-        )}
+        <FileText size={20} />
+      </a>
+      <div className="my-1 rounded-[5px] bg-white p-4 font-[arial] shadow-[0_4px_8px_rgba(0,0,0,0.5)] max-md:mx-0 max-md:w-full max-md:rounded-none max-md:shadow-none">
+        {isLoading && <div className="p-8 text-center">Loading resume...</div>}
 
         {error && (
-          <div style={{ color: "red", textAlign: "center", padding: "2rem" }}>
+          <div className="p-8 text-center text-red-600">
             Error loading resume: {error}
           </div>
         )}
@@ -95,12 +62,11 @@ function Resume() {
         )}
 
         {!isLoading && !error && !resumeMarkdown && (
-          <div style={{ textAlign: "center", padding: "2rem" }}>
-            No resume content available
-          </div>
+          <div className="p-8 text-center">No resume content available</div>
         )}
-      </Box>
-    </Container>
+      </div>
+    </div>
   );
 }
+
 export default Resume;
