@@ -74,50 +74,57 @@ function Projects() {
   const currentProject = projects[currentIndex];
 
   return (
-    <div className="mx-auto max-w-5xl">
+    <div className="mx-auto w-full max-w-5xl">
       <div
-        className="relative flex min-h-[77vh] items-center justify-center pt-5"
+        className="relative flex min-h-[72vh] items-center justify-center"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
         <button
           onClick={handlePrevious}
-          className="absolute left-0 top-1/2 z-10 -translate-y-1/2 cursor-pointer rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
+          aria-label="Previous project"
+          className="button-subtle absolute left-1 top-1/2 z-10 -translate-y-1/2 cursor-pointer p-2 sm:left-2"
         >
-          <ChevronLeft size={24} />
+          <ChevronLeft size={22} />
         </button>
 
-        <div className="w-full max-w-[800px]">
+        <div className="w-full max-w-[860px] px-8 sm:px-12">
           <img
             src={currentProject.image}
             alt={currentProject.name}
-            className="max-h-[60vh] w-full object-contain"
+            className="max-h-[54vh] w-full rounded-xl border border-border-muted bg-white object-contain p-3 shadow-[0_8px_24px_rgba(16,37,55,0.08)] sm:p-4"
           />
-          <div className="mt-1 border-2 border-primary bg-bg-paper p-4">
-            <h5 className="mb-1 text-xl font-medium">
-              <a href={currentProject.link} className="text-primary underline">
+          <div className="content-card mt-4 p-5 sm:p-6">
+            <h5 className="mb-2 text-lg font-semibold tracking-tight text-text-primary sm:text-xl">
+              <a href={currentProject.link} className="text-link">
                 {currentProject.name}
               </a>
             </h5>
-            <p className="text-sm">{currentProject.description}</p>
+            <p className="text-sm leading-relaxed text-text-primary sm:text-base">
+              {currentProject.description}
+            </p>
           </div>
         </div>
 
         <button
           onClick={handleNext}
-          className="absolute right-0 top-1/2 z-10 -translate-y-1/2 cursor-pointer rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
+          aria-label="Next project"
+          className="button-subtle absolute right-1 top-1/2 z-10 -translate-y-1/2 cursor-pointer p-2 sm:right-2"
         >
-          <ChevronRight size={24} />
+          <ChevronRight size={22} />
         </button>
 
-        <div className="absolute bottom-5 left-1/2 flex -translate-x-1/2 gap-2">
+        <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 gap-2 rounded-full bg-white/75 px-3 py-2 shadow-sm backdrop-blur">
           {projects.map((_, index) => (
             <button
               key={index}
+              aria-label={`Go to project ${index + 1}`}
               onClick={() => setCurrentIndex(index)}
-              className={`h-2.5 w-2.5 cursor-pointer rounded-full border-none transition-colors hover:bg-primary-light ${
-                index === currentIndex ? "bg-primary" : "bg-gray-400"
+              className={`h-2.5 w-2.5 cursor-pointer rounded-full border border-transparent transition-all hover:scale-110 hover:bg-primary-light ${
+                index === currentIndex
+                  ? "w-5 border-primary/15 bg-primary"
+                  : "bg-slate-400/80"
               }`}
             />
           ))}
