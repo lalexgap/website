@@ -38,17 +38,18 @@ function Resume() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center pt-1 max-md:mx-0 max-md:w-full max-md:px-0">
+    <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-4">
       <a
         href="/resume.pdf"
         target="_blank"
         rel="noopener noreferrer"
-        className="mb-2 inline-flex items-center gap-1 text-text-primary underline"
+        className="button-subtle inline-flex items-center gap-2 px-4 py-2 text-sm font-medium"
       >
         Download a PDF copy
-        <FileText size={20} />
+        <FileText size={18} />
       </a>
-      <div className="prose prose-sm prose-h1:mb-1 prose-h2:mb-1 prose-h2:mt-3 prose-h3:mb-0.5 prose-h3:mt-2 prose-p:my-1 prose-ul:my-1 prose-li:my-0 my-1 max-w-none rounded-[5px] bg-white p-4 font-[arial] shadow-[0_4px_8px_rgba(0,0,0,0.5)] max-md:mx-0 max-md:w-full max-md:rounded-none max-md:shadow-none">
+      <div className="content-card w-full p-5 sm:p-6">
+        <div className="prose prose-slate prose-sm max-w-none leading-relaxed prose-headings:tracking-tight prose-h1:mb-2 prose-h2:mt-4 prose-h2:mb-2 prose-h3:mt-3 prose-h3:mb-1 prose-p:my-2 prose-ul:my-2 prose-li:my-0.5">
         {isLoading && <div className="p-8 text-center">Loading resume...</div>}
 
         {error && (
@@ -64,6 +65,7 @@ function Resume() {
         {!isLoading && !error && !resumeMarkdown && (
           <div className="p-8 text-center">No resume content available</div>
         )}
+        </div>
       </div>
     </div>
   );

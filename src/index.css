@@ -2,12 +2,14 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-primary: #294c60;
-  --color-primary-light: #3a6a85;
-  --color-bg-default: #a3d9ff;
+  --color-primary: #1f3f58;
+  --color-primary-light: #2f5877;
+  --color-bg-default: #edf3f8;
   --color-bg-paper: #ffffff;
-  --color-text-primary: #001b2e;
-  --color-accent: #e55812;
+  --color-text-primary: #102537;
+  --color-accent: #d66f3d;
+  --color-border-muted: #d0dde7;
+  --color-text-muted: #5a6e7e;
   --font-display: "Bungee Shade", sans-serif;
 }
 
@@ -15,5 +17,84 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #a3d9ff;
+  color: var(--color-text-primary);
+  background:
+    radial-gradient(circle at 15% 15%, #f6faff 0, transparent 46%),
+    radial-gradient(circle at 85% 0%, #e2edf5 0, transparent 38%),
+    #edf3f8;
+  font-family:
+    "Avenir Next", "Segoe UI", "Helvetica Neue", "Noto Sans", sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.site-shell {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 72rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.content-card {
+  border: 1px solid var(--color-border-muted);
+  border-radius: 14px;
+  background: var(--color-bg-paper);
+  box-shadow:
+    0 10px 30px rgba(16, 37, 55, 0.06),
+    0 1px 0 rgba(255, 255, 255, 0.8) inset;
+}
+
+.text-link {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--color-primary) 35%, transparent);
+  text-underline-offset: 3px;
+  transition:
+    color 160ms ease,
+    text-decoration-color 160ms ease;
+}
+
+.text-link:hover {
+  color: var(--color-primary-light);
+  text-decoration-color: var(--color-primary-light);
+}
+
+.button-subtle {
+  border: 1px solid var(--color-border-muted);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-bg-paper) 86%, transparent);
+  color: var(--color-text-primary);
+  backdrop-filter: blur(4px);
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.button-subtle:hover {
+  border-color: color-mix(in srgb, var(--color-primary) 22%, var(--color-border-muted));
+  background: color-mix(in srgb, white 95%, var(--color-primary) 5%);
+}
+
+.button-subtle:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-primary) 35%, transparent);
+  outline-offset: 2px;
+}
+
+.button-subtle:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 640px) {
+  .site-shell {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
 }

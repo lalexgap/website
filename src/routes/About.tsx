@@ -1,29 +1,26 @@
 function About() {
   return (
-    <div className="flex flex-col items-center px-2">
-      <div className="flex max-w-[600px] flex-col items-center pb-2">
+    <div className="mx-auto flex w-full max-w-3xl flex-col items-center">
+      <div className="content-card flex w-full flex-col items-center px-6 py-8 sm:px-8 sm:py-10">
         <img
           src="alex.png"
           alt="Alex Gap"
-          className="max-h-[385px] max-w-[385px] rounded-full p-2"
+          className="mb-4 max-h-[300px] max-w-[300px] rounded-full border border-border-muted bg-white p-2 shadow-sm sm:mb-5 sm:max-h-[340px] sm:max-w-[340px]"
         />
-        <h1 className="text-center font-display text-3xl text-text-primary">
+        <h1 className="text-center text-4xl font-semibold tracking-tight text-text-primary">
           Alex Gap
         </h1>
-        <h2 className="mb-2 text-center font-display text-2xl text-accent">
+        <h2 className="mb-4 text-center text-lg font-medium tracking-wide text-accent uppercase sm:mb-5">
           full-stack developer
         </h2>
-        <p className="py-1 text-text-primary">
+        <p className="max-w-xl text-balance text-center text-[1.02rem] leading-relaxed text-text-primary">
           I'm a full-stack developer located in Squamish, BC, Canada. I
           currently work at{" "}
-          <a
-            href="https://www.producthunt.com/@lagap"
-            className="text-primary underline"
-          >
+          <a href="https://www.producthunt.com/@lagap" className="text-link">
             Product Hunt
           </a>{" "}
           as a software engineer. Check out some of the cool{" "}
-          <a href="/projects" className="text-primary underline">
+          <a href="/projects" className="text-link">
             projects I've worked on
           </a>
           .
