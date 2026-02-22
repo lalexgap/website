@@ -9,7 +9,7 @@ export default function NavBar() {
   ];
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 border-b border-primary/30 bg-primary/94 text-white shadow-[0_6px_18px_rgba(16,37,55,0.2)] backdrop-blur">
+    <nav className="sticky top-0 z-50 border-b border-primary/30 bg-primary/94 text-white shadow-[0_6px_18px_rgba(16,37,55,0.2)] backdrop-blur">
       <div className="site-shell flex items-center justify-between py-2 md:py-2.5">
         <div className="flex min-w-0 flex-1 gap-1">
           {pages.map((page) => (
