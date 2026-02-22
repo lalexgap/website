@@ -1,11 +1,25 @@
+import { useRef } from "react";
+
 function About() {
+  const profileTapCount = useRef(0);
+
+  const handleProfileTap = () => {
+    profileTapCount.current += 1;
+
+    if (profileTapCount.current >= 5) {
+      window.dispatchEvent(new Event("unlock-squamish-send"));
+      profileTapCount.current = 0;
+    }
+  };
+
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col items-center">
       <div className="content-card flex w-full flex-col items-center px-6 py-8 sm:px-8 sm:py-10">
         <img
           src="alex.png"
           alt="Alex Gap"
-          className="mb-4 max-h-[300px] max-w-[300px] rounded-full border border-border-muted bg-white p-2 shadow-sm sm:mb-5 sm:max-h-[340px] sm:max-w-[340px]"
+          onClick={handleProfileTap}
+          className="mb-4 max-h-[300px] max-w-[300px] cursor-pointer rounded-full border border-border-muted bg-white p-2 shadow-sm sm:mb-5 sm:max-h-[340px] sm:max-w-[340px]"
         />
         <h1 className="text-center text-4xl font-semibold tracking-tight text-text-primary">
           Alex Gap

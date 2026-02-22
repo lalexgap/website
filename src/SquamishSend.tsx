@@ -43,6 +43,7 @@ function initialHolds(): Hold[] {
 }
 
 export default function SquamishSend() {
+  const [isUnlocked, setIsUnlocked] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
   const [timeLeft, setTimeLeft] = useState(GAME_DURATION_SECONDS);
@@ -86,6 +87,19 @@ export default function SquamishSend() {
     setEndReason(null);
     openButtonRef.current?.focus();
   };
+
+  useEffect(() => {
+    const unlocked = window.localStorage.getItem("squamish-send-unlocked") === "true";
+    setIsUnlocked(unlocked);
+
+    const onUnlock = () => {
+      window.localStorage.setItem("squamish-send-unlocked", "true");
+      setIsUnlocked(true);
+    };
+
+    window.addEventListener("unlock-squamish-send", onUnlock);
+    return () => window.removeEventListener("unlock-squamish-send", onUnlock);
+  }, []);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -232,6 +246,10 @@ export default function SquamishSend() {
     const relative = (y - viewportBottom) / VIEWPORT_UNITS;
     return 100 - Math.min(100, Math.max(0, relative * 100));
   };
+
+  if (!isUnlocked) {
+    return null;
+  }
 
   return (
     <>
