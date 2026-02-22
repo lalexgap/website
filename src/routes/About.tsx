@@ -1,6 +1,6 @@
 function About() {
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-col items-center">
+    <div className="mx-auto flex w-full max-w-3xl flex-col items-center pt-3 sm:pt-4">
       <div className="content-card flex w-full flex-col items-center px-6 py-8 sm:px-8 sm:py-10">
         <img
           src="alex.png"
