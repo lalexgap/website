@@ -539,7 +539,7 @@ export default function SkiFreeEasterEgg() {
         className="button-subtle fixed right-4 bottom-4 z-40 flex items-center gap-2 px-3 py-2 text-sm font-semibold shadow-[0_8px_20px_rgba(16,37,55,0.2)] sm:right-6 sm:bottom-6"
         aria-haspopup="dialog"
         aria-controls="skifree-easter-egg-modal"
-        aria-label="Open SkiFree-style mini-game"
+        aria-label="Open Squamish Skiing mini-game"
       >
         <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden>
           <path d="M3 16 L8 6 L12 11 L16 4 L17.5 16 Z" fill="#1d7461" />
@@ -568,7 +568,7 @@ export default function SkiFreeEasterEgg() {
                   id="skifree-easter-egg-title"
                   className="text-lg font-semibold text-text-primary sm:text-xl"
                 >
-                  SkiFree Easter Egg
+                  Squamish Skiing
                 </h2>
                 <p className="text-sm text-text-muted">
                   Arrow keys or A/D to carve, Space to jump.
@@ -579,7 +579,7 @@ export default function SkiFreeEasterEgg() {
                 type="button"
                 className="button-subtle px-3 py-1.5 text-xs font-semibold tracking-wide uppercase"
                 onClick={closeGame}
-                aria-label="Close SkiFree mini-game"
+                aria-label="Close Squamish Skiing mini-game"
               >
                 Close
               </button>
@@ -674,7 +674,7 @@ export default function SkiFreeEasterEgg() {
                     type="button"
                     onClick={startRun}
                     className="rounded-full border border-primary/20 bg-primary px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                    aria-label="Restart SkiFree mini-game"
+                    aria-label="Restart Squamish Skiing mini-game"
                   >
                     Restart
                   </button>
