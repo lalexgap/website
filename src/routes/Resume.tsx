@@ -50,21 +50,23 @@ function Resume() {
       </a>
       <div className="content-card w-full p-5 sm:p-6">
         <div className="prose prose-slate prose-sm max-w-none leading-relaxed prose-headings:tracking-tight prose-h1:mb-2 prose-h2:mt-4 prose-h2:mb-2 prose-h3:mt-3 prose-h3:mb-1 prose-p:my-2 prose-ul:my-2 prose-li:my-0.5">
-        {isLoading && <div className="p-8 text-center">Loading resume...</div>}
+          {isLoading && (
+            <div className="p-8 text-center">Loading resume...</div>
+          )}
 
-        {error && (
-          <div className="p-8 text-center text-red-600">
-            Error loading resume: {error}
-          </div>
-        )}
+          {error && (
+            <div className="p-8 text-center text-red-600">
+              Error loading resume: {error}
+            </div>
+          )}
 
-        {!isLoading && !error && resumeMarkdown && (
-          <Markdown>{resumeMarkdown}</Markdown>
-        )}
+          {!isLoading && !error && resumeMarkdown && (
+            <Markdown>{resumeMarkdown}</Markdown>
+          )}
 
-        {!isLoading && !error && !resumeMarkdown && (
-          <div className="p-8 text-center">No resume content available</div>
-        )}
+          {!isLoading && !error && !resumeMarkdown && (
+            <div className="p-8 text-center">No resume content available</div>
+          )}
         </div>
       </div>
     </div>

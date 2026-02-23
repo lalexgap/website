@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
-import SquamishSend from "./SquamishSend";
+import SkiFreeEasterEgg from "./SkiFreeEasterEgg";
 
 export default function Layout() {
   return (
@@ -11,7 +11,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
-      <SquamishSend />
+      <SkiFreeEasterEgg />
     </div>
   );
 }

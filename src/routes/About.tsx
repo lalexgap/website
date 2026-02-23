@@ -8,6 +8,7 @@ function About() {
 
     if (profileTapCount.current >= 5) {
       window.dispatchEvent(new Event("unlock-squamish-send"));
+      window.dispatchEvent(new Event("unlock-skifree-easter-egg"));
       profileTapCount.current = 0;
     }
   };
