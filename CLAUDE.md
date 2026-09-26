@@ -59,6 +59,10 @@ Defined in `src/index.css` using Tailwind CSS `@theme` directive:
 - `alex.png` is kept for the Open Graph image; the page itself uses `alex.webp`.
 - Per-page `<title>`/canonical come from `src/PageMeta.tsx` (React 19 hoists them into `<head>`).
 
+### Analytics
+- Self-hosted Umami (`/opt/stacks/umami`, 127.0.0.1:3030). Tracker is loaded first-party from `/a/a.js`; Caddy (`/etc/caddy/Caddyfile`, snippet `alexgap_site`) strips `/a` and proxies to Umami. Dashboard: https://stats.alexgap.ca.
+- Website ID lives in the `<script>` tag in `index.html`. Umami drops headless/bot user-agents, so automated browser tests won't show up as visits.
+
 ## Development Notes
 
 - **ESLint**: Uses flat config format with `typescript-eslint` unified package
