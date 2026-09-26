@@ -1,7 +1,23 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import PageMeta from "../PageMeta";
+import { OPEN_EVENT } from "../SquamishSend";
 
 function About() {
+  const taps = useRef({ count: 0, at: 0 });
+
+  // Easter egg: five quick taps on the photo opens the climbing game.
+  const handlePhotoTap = () => {
+    const now = Date.now();
+    const t = taps.current;
+    t.count = now - t.at < 1500 ? t.count + 1 : 1;
+    t.at = now;
+    if (t.count >= 5) {
+      t.count = 0;
+      window.dispatchEvent(new Event(OPEN_EVENT));
+    }
+  };
+
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col items-center">
       <PageMeta title="" path="/" />
@@ -12,6 +28,7 @@ function About() {
           width={385}
           height={384}
           fetchPriority="high"
+          onClick={handlePhotoTap}
           className="mb-4 max-h-[300px] max-w-[300px] rounded-full border border-border-muted bg-white p-2 shadow-sm sm:mb-5 sm:max-h-[340px] sm:max-w-[340px]"
         />
         <h1 className="text-center text-4xl font-semibold tracking-tight text-text-primary">
