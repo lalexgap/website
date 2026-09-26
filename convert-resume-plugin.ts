@@ -1,4 +1,4 @@
-import { execaCommandSync } from "execa";
+import { execFileSync } from "node:child_process";
 
 import { Plugin } from "vite";
 
@@ -34,8 +34,7 @@ const serveResumePlugin = (): Plugin => ({
             fs.mkdirSync(dir, { recursive: true });
           }
 
-          const command = `pandoc ${GITHUB_RESUME_URL} -o ${GENERATED_FILEPATH}`;
-          execaCommandSync(command);
+          execFileSync("pandoc", [GITHUB_RESUME_URL, "-o", GENERATED_FILEPATH]);
         }
 
         if (!fs.existsSync(GENERATED_FILEPATH)) {
@@ -64,8 +63,7 @@ const serveResumePlugin = (): Plugin => ({
     try {
       console.log("Generating resume PDF for production build...");
       const outputPath = "./dist/resume.pdf";
-      const command = `pandoc ${GITHUB_RESUME_URL} -o ${outputPath}`;
-      execaCommandSync(command);
+      execFileSync("pandoc", [GITHUB_RESUME_URL, "-o", outputPath]);
       console.log("Resume PDF generated at dist/resume.pdf");
     } catch (error) {
       console.error("Error generating PDF during build:", error);

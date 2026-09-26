@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { Github, Linkedin, Mail, FileText } from "lucide-react";
+import { Mail, FileText } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "./BrandIcons";
 
 export default function NavBar() {
   const pages = [
@@ -35,14 +36,14 @@ export default function NavBar() {
             title="Github Profile"
             className="rounded-full p-1.5 text-white/90 transition-colors hover:bg-white/10 hover:text-white sm:p-2"
           >
-            <Github className="size-[18px] sm:size-5" />
+            <GithubIcon className="size-[18px] sm:size-5" />
           </a>
           <a
             href="https://www.linkedin.com/in/alex-gap-7ba83665/"
             title="LinkedIn Profile"
             className="rounded-full p-1.5 text-white/90 transition-colors hover:bg-white/10 hover:text-white sm:p-2"
           >
-            <Linkedin className="size-[18px] sm:size-5" />
+            <LinkedinIcon className="size-[18px] sm:size-5" />
           </a>
           <a
             href="mailto:me@alexgap.ca"

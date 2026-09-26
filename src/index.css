@@ -20,8 +20,7 @@ body {
   color: var(--color-text-primary);
   background:
     radial-gradient(circle at 15% 15%, #f6faff 0, transparent 46%),
-    radial-gradient(circle at 85% 0%, #e2edf5 0, transparent 38%),
-    #edf3f8;
+    radial-gradient(circle at 85% 0%, #e2edf5 0, transparent 38%), #edf3f8;
   font-family:
     "Avenir Next", "Segoe UI", "Helvetica Neue", "Noto Sans", sans-serif;
 }
@@ -54,7 +53,11 @@ a {
 .text-link {
   color: var(--color-primary);
   text-decoration: underline;
-  text-decoration-color: color-mix(in srgb, var(--color-primary) 35%, transparent);
+  text-decoration-color: color-mix(
+    in srgb,
+    var(--color-primary) 35%,
+    transparent
+  );
   text-underline-offset: 3px;
   transition:
     color 160ms ease,
@@ -79,7 +82,11 @@ a {
 }
 
 .button-subtle:hover {
-  border-color: color-mix(in srgb, var(--color-primary) 22%, var(--color-border-muted));
+  border-color: color-mix(
+    in srgb,
+    var(--color-primary) 22%,
+    var(--color-border-muted)
+  );
   background: color-mix(in srgb, white 95%, var(--color-primary) 5%);
 }
 

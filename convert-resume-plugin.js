@@ -1,4 +1,4 @@
-import { execaCommandSync } from "execa";
+import { execFileSync } from "node:child_process";
 import fs from "fs";
 const GITHUB_RESUME_URL = "https://raw.githubusercontent.com/lalexgap/resume/main/resume.md";
 const GENERATED_FILEPATH = "./public/generated/resume.pdf";
@@ -19,8 +19,7 @@ const serveResumePlugin = () => ({
                     if (!fs.existsSync(dir)) {
                         fs.mkdirSync(dir, { recursive: true });
                     }
-                    const command = `pandoc ${GITHUB_RESUME_URL} -o ${GENERATED_FILEPATH}`;
-                    execaCommandSync(command);
+                    execFileSync("pandoc", [GITHUB_RESUME_URL, "-o", GENERATED_FILEPATH]);
                 }
                 if (!fs.existsSync(GENERATED_FILEPATH)) {
                     console.error("PDF generation failed");
@@ -44,8 +43,7 @@ const serveResumePlugin = () => ({
         try {
             console.log("Generating resume PDF for production build...");
             const outputPath = "./dist/resume.pdf";
-            const command = `pandoc ${GITHUB_RESUME_URL} -o ${outputPath}`;
-            execaCommandSync(command);
+            execFileSync("pandoc", [GITHUB_RESUME_URL, "-o", outputPath]);
             console.log("Resume PDF generated at dist/resume.pdf");
         }
         catch (error) {
