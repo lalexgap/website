@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
 import { FileText } from "lucide-react";
+import PageMeta from "../PageMeta";
 
 const GITHUB_RESUME_URL =
   "https://raw.githubusercontent.com/lalexgap/resume/main/resume.md";
@@ -39,6 +40,7 @@ function Resume() {
 
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-4">
+      <PageMeta title="Resume" path="/resume" />
       <a
         href="/resume.pdf"
         target="_blank"

@@ -8,11 +8,11 @@ Personal website for Alex Gap hosted at www.alexgap.ca - a React-based single-pa
 
 ## Tech Stack
 
-- **React 19.2** with TypeScript 5.9
-- **Vite 7.3** as build tool
+- **React 19.3** with TypeScript 6.0 (7.x blocked until typescript-eslint supports it)
+- **Vite 8** as build tool
 - **Tailwind CSS 4** for styling (via `@tailwindcss/vite` plugin)
-- **lucide-react** for icons
-- **React Router DOM 7.13** for routing (data router pattern with `createBrowserRouter`)
+- **lucide-react 1.x** for icons (brand logos were removed upstream; GitHub/LinkedIn live in `src/BrandIcons.tsx`)
+- **React Router DOM 7.18** for routing (data router pattern with `createBrowserRouter`)
 - **React Markdown 10.1** for resume rendering
 
 ## Commands
@@ -45,7 +45,6 @@ Defined in `src/index.css` using Tailwind CSS `@theme` directive:
 - Primary color: `#294C60` (`bg-primary`, `text-primary`)
 - Background: `#a3d9ff` (`bg-bg-default`)
 - Accent: `#e55812` (`text-accent`, `bg-accent`)
-- Display font: 'Bungee Shade' (`font-display`)
 - Text primary: `#001B2E` (`text-text-primary`)
 
 ### Key Files
@@ -55,9 +54,14 @@ Defined in `src/index.css` using Tailwind CSS `@theme` directive:
 - `convert-resume-plugin.ts` - Vite plugin for PDF generation
 - `eslint.config.js` - ESLint 10 flat config with `typescript-eslint`
 
+### Assets
+- Project media in `public/` are WebP stills and MP4 loops (converted from the original PNG/GIFs with ffmpeg). Keep new images <=1600px wide.
+- `alex.png` is kept for the Open Graph image; the page itself uses `alex.webp`.
+- Per-page `<title>`/canonical come from `src/PageMeta.tsx` (React 19 hoists them into `<head>`).
+
 ## Development Notes
 
 - **ESLint**: Uses flat config format with `typescript-eslint` unified package
 - **Node Requirement**: Node >=22.0.0
-- **Package Manager**: Yarn
+- **Package Manager**: Yarn. If the shell has `NODE_ENV=production`, run `yarn install --production=false` or devDependencies (tsc, eslint) are skipped.
 - **No Test Framework**: Currently no testing setup

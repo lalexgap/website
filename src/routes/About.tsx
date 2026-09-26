@@ -1,4 +1,6 @@
 import { useRef } from "react";
+import { Link } from "react-router-dom";
+import PageMeta from "../PageMeta";
 
 function About() {
   const profileTapCount = useRef(0);
@@ -15,10 +17,14 @@ function About() {
 
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col items-center">
+      <PageMeta title="" path="/" />
       <div className="content-card flex w-full flex-col items-center px-6 py-8 sm:px-8 sm:py-10">
         <img
-          src="alex.png"
+          src="/alex.webp"
           alt="Alex Gap"
+          width={385}
+          height={384}
+          fetchPriority="high"
           onClick={handleProfileTap}
           className="mb-4 max-h-[300px] max-w-[300px] cursor-pointer rounded-full border border-border-muted bg-white p-2 shadow-sm sm:mb-5 sm:max-h-[340px] sm:max-w-[340px]"
         />
@@ -35,9 +41,9 @@ function About() {
             Product Hunt
           </a>{" "}
           as a software engineer. Check out some of the cool{" "}
-          <a href="/projects" className="text-link">
+          <Link to="/projects" className="text-link">
             projects I've worked on
-          </a>
+          </Link>
           .
         </p>
       </div>
