@@ -26,6 +26,17 @@ function Projects() {
 
   const projects: Project[] = [
     {
+      name: "Agent Motel",
+      link: "https://github.com/lalexgap/agent-motel",
+      media: {
+        kind: "image",
+        src: "/agent-motel.webp",
+        width: 1600,
+        height: 900,
+      },
+      description: `A CLI for running a fleet of Claude Code and Codex coding agents in parallel. Each agent gets its own tmux session, git worktree, live status, and message queue, all managed from a single full-screen hub.`,
+    },
+    {
       media: {
         kind: "image",
         src: "/ethglobal-hack.webp",
