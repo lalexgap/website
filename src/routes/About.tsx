@@ -1,20 +1,7 @@
-import { useRef } from "react";
 import { Link } from "react-router-dom";
 import PageMeta from "../PageMeta";
 
 function About() {
-  const profileTapCount = useRef(0);
-
-  const handleProfileTap = () => {
-    profileTapCount.current += 1;
-
-    if (profileTapCount.current >= 5) {
-      window.dispatchEvent(new Event("unlock-squamish-send"));
-      window.dispatchEvent(new Event("unlock-skifree-easter-egg"));
-      profileTapCount.current = 0;
-    }
-  };
-
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col items-center">
       <PageMeta title="" path="/" />
@@ -25,8 +12,7 @@ function About() {
           width={385}
           height={384}
           fetchPriority="high"
-          onClick={handleProfileTap}
-          className="mb-4 max-h-[300px] max-w-[300px] cursor-pointer rounded-full border border-border-muted bg-white p-2 shadow-sm sm:mb-5 sm:max-h-[340px] sm:max-w-[340px]"
+          className="mb-4 max-h-[300px] max-w-[300px] rounded-full border border-border-muted bg-white p-2 shadow-sm sm:mb-5 sm:max-h-[340px] sm:max-w-[340px]"
         />
         <h1 className="text-center text-4xl font-semibold tracking-tight text-text-primary">
           Alex Gap
