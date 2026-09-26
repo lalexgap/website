@@ -31,8 +31,8 @@ function Projects() {
       media: {
         kind: "image",
         src: "/agent-motel.webp",
-        width: 1600,
-        height: 900,
+        width: 1000,
+        height: 562,
       },
       description: `A CLI for running a fleet of Claude Code and Codex coding agents in parallel. Each agent gets its own tmux session, git worktree, live status, and message queue, all managed from a single full-screen hub.`,
     },
@@ -129,6 +129,7 @@ function Projects() {
   return (
     <div className="mx-auto w-full max-w-5xl">
       <PageMeta title="Projects" path="/projects" />
+      <h1 className="sr-only">Projects</h1>
       <div
         className="relative flex min-h-[72vh] items-center justify-center"
         onTouchStart={handleTouchStart}
@@ -170,11 +171,11 @@ function Projects() {
             />
           )}
           <div className="content-card mt-4 p-5 sm:p-6">
-            <h5 className="mb-2 text-lg font-semibold tracking-tight text-text-primary sm:text-xl">
+            <h2 className="mb-2 text-lg font-semibold tracking-tight text-text-primary sm:text-xl">
               <a href={currentProject.link} className="text-link">
                 {currentProject.name}
               </a>
-            </h5>
+            </h2>
             <p className="text-sm leading-relaxed text-text-primary sm:text-base">
               {currentProject.description}
             </p>

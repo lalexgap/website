@@ -1,43 +1,14 @@
-import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
 import { FileText } from "lucide-react";
+import resumeMarkdown from "virtual:resume";
 import PageMeta from "../PageMeta";
 
-const GITHUB_RESUME_URL =
-  "https://raw.githubusercontent.com/lalexgap/resume/main/resume.md";
+// The resume markdown is fetched from GitHub at build time (see
+// convert-resume-plugin.ts), so the page renders in one pass with no
+// loading state or layout shift. A nightly rebuild keeps it current.
+const SOURCE_URL = "https://github.com/lalexgap/resume/blob/main/resume.md";
 
 function Resume() {
-  const [resumeMarkdown, setResumeMarkdown] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchAndSetResumeMarkdown = async () => {
-      setIsLoading(true);
-      setError(null);
-
-      try {
-        const response = await fetch(GITHUB_RESUME_URL);
-
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-        }
-
-        const text = await response.text();
-        setResumeMarkdown(text);
-      } catch (err) {
-        const errorMessage =
-          err instanceof Error ? err.message : "Unknown error occurred";
-        console.error("Error fetching resume:", errorMessage);
-        setError(errorMessage);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchAndSetResumeMarkdown();
-  }, []);
-
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-4">
       <PageMeta title="Resume" path="/resume" />
@@ -52,22 +23,13 @@ function Resume() {
       </a>
       <div className="content-card w-full p-5 sm:p-6">
         <div className="prose prose-slate prose-sm max-w-none leading-relaxed prose-headings:tracking-tight prose-h1:mb-2 prose-h2:mt-4 prose-h2:mb-2 prose-h3:mt-3 prose-h3:mb-1 prose-p:my-2 prose-ul:my-2 prose-li:my-0.5">
-          {isLoading && (
-            <div className="p-8 text-center">Loading resume...</div>
-          )}
-
-          {error && (
-            <div className="p-8 text-center text-red-600">
-              Error loading resume: {error}
-            </div>
-          )}
-
-          {!isLoading && !error && resumeMarkdown && (
+          {resumeMarkdown ? (
             <Markdown>{resumeMarkdown}</Markdown>
-          )}
-
-          {!isLoading && !error && !resumeMarkdown && (
-            <div className="p-8 text-center">No resume content available</div>
+          ) : (
+            <div className="p-8 text-center">
+              The resume couldn&apos;t be loaded here.{" "}
+              <a href={SOURCE_URL}>View it on GitHub</a>.
+            </div>
           )}
         </div>
       </div>
